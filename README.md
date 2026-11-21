@@ -7,10 +7,9 @@
 **An interactive 3D specialized companion veterinary clinic web experience — sunlit architectural atmosphere, real-time Three.js scenes, tactile 3D navigation, and complete Persian (`RTL`) & English (`LTR`) localization.**
 
 [![Live Website](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-0D9488?style=for-the-badge&logo=githubpages&logoColor=white)](https://amiralisite.github.io/elara-vet-clinic/)
-[![Full HD Video](https://img.shields.io/badge/4--Min%201080p%20Tour-Download%20MP4-F97316?style=for-the-badge&logo=youtube&logoColor=white)](https://github.com/amiraliSite/elara-vet-clinic/releases/download/v1.0-showcase/elara-vet-sanctuary-4min-tour.mp4)
 [![Built With](https://img.shields.io/badge/Three.js%20%2B%20React%2019-TypeScript-172A28?style=for-the-badge)](https://github.com/amiraliSite/elara-vet-clinic)
 
-[🌐 مشاهده وب‌سایت آنلاین](https://amiralisite.github.io/elara-vet-clinic/) &nbsp;·&nbsp; [🎬 دانلود فیلم باکیفیت ۴ دقیقه‌ای (1080p MP4)](https://github.com/amiraliSite/elara-vet-clinic/releases/download/v1.0-showcase/elara-vet-sanctuary-4min-tour.mp4)
+[🌐 مشاهده وب‌سایت آنلاین](https://amiralisite.github.io/elara-vet-clinic/)
 
 </div>
 
@@ -105,14 +104,6 @@
     </td>
   </tr>
 </table>
-
----
-
-## 🎬 Full 4-Minute HD Walkthrough Video · فیلم معرفی کامل
-
-A **4-minute Full HD (1920×1080, 30fps MP4)** walkthrough covering every interactive control, 3D scene transition, booking flow, bilingual switch, and feedback popup is available directly in the Releases section:
-
-👉 **[Download Full 4-Minute 1080p MP4 Showcase](https://github.com/amiraliSite/elara-vet-clinic/releases/download/v1.0-showcase/elara-vet-sanctuary-4min-tour.mp4)**
 
 ---
 
