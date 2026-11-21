@@ -97,7 +97,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ t, lang }) => {
                 <CheckCircle2 className="w-11 h-11 text-[#B87B4B] mx-auto mb-3" />
                 <h3
                   className={`font-medium text-[#221914] ${
-                    lang === 'fa' ? 'font-nastaliq text-2xl' : 'font-display text-2xl'
+                    lang === 'fa' ? 'font-persian-display text-2xl' : 'font-display text-2xl'
                   }`}
                 >
                   {t.feedback.thanksTitle}
@@ -115,7 +115,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ t, lang }) => {
                   id="feedback-modal-title"
                   className={`font-medium text-[#221914] pe-7 ${
                     lang === 'fa'
-                      ? 'font-nastaliq text-xl leading-[2.05]'
+                      ? 'font-persian-display text-2xl leading-[1.4]'
                       : 'font-display text-2xl leading-snug'
                   }`}
                 >
@@ -140,7 +140,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ t, lang }) => {
                             setRating(star);
                             setError(false);
                           }}
-                          aria-label={`${star} / 5`}
+                          aria-label={t.feedback.ratingLabels[star - 1]}
                           className="p-1.5 rounded-lg transition-transform duration-150 hover:scale-115 active:scale-95 cursor-pointer"
                         >
                           <Star

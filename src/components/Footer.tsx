@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ t, lang, onChangeLang }) => {
             <a
               href="#sanctuary-slider"
               className={`font-semibold text-[#F5EFE8] ${
-                lang === 'fa' ? 'font-nastaliq text-2xl' : 'font-display text-xl'
+                lang === 'fa' ? 'font-persian-display text-2xl' : 'font-display text-xl'
               }`}
             >
               {t.brand}
@@ -50,7 +50,6 @@ export const Footer: React.FC<FooterProps> = ({ t, lang, onChangeLang }) => {
                 [
                   { code: 'fa', label: 'فارسی' },
                   { code: 'en', label: 'English' },
-                  { code: 'de', label: 'Deutsch' },
                 ] as const
               ).map((item) => (
                 <button

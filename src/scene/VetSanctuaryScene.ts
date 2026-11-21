@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import type { CameraPreset, HotspotId, LightingMood } from '../i18n/translations';
+import type { CameraPreset, HotspotId, Language, LightingMood } from '../i18n/translations';
 
 export interface VetSceneCallbacks {
   onSelectHotspot?: (id: HotspotId | null) => void;
@@ -154,6 +154,7 @@ export class VetSanctuaryScene {
   private monitorCtx!: CanvasRenderingContext2D;
   private monitorTex!: THREE.CanvasTexture;
   private ecgPhase = 0;
+  private monitorLang: Language = 'fa';
 
   // Explodable sub-assemblies
   private lampAssembly!: THREE.Group;
@@ -763,25 +764,47 @@ export class VetSanctuaryScene {
       ctx.stroke();
     }
 
-    // Header labels
-    ctx.fillStyle = '#8FB9A8';
-    ctx.font = '600 18px sans-serif';
-    ctx.fillText('ELARA TELEMETRY · SINUS CALM', 24, 34);
+    // Header labels (bilingual)
+    ctx.fillStyle = '#E0AA7A';
+    if (this.monitorLang === 'fa') {
+      ctx.font = '600 20px Vazirmatn, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText('پایش علائم حیاتی الارا · آرام', w - 24, 36);
 
-    // Vital numbers
-    ctx.fillStyle = '#6BE3B3';
-    ctx.font = '700 44px monospace';
-    ctx.fillText('84', 360, 108);
-    ctx.font = '500 16px sans-serif';
-    ctx.fillStyle = '#8FB9A8';
-    ctx.fillText('BPM · HR', 360, 132);
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#6BE3B3';
+      ctx.font = '700 44px Vazirmatn, monospace';
+      ctx.fillText('۸۴', 360, 108);
+      ctx.font = '500 15px Vazirmatn, sans-serif';
+      ctx.fillStyle = '#B8A594';
+      ctx.fillText('ضربان قلب / دقیقه', 348, 134);
 
-    ctx.fillStyle = '#E8C38E';
-    ctx.font = '700 38px monospace';
-    ctx.fillText('99%', 360, 206);
-    ctx.font = '500 16px sans-serif';
-    ctx.fillStyle = '#8FB9A8';
-    ctx.fillText('SpO2 · 38.2°C', 360, 232);
+      ctx.fillStyle = '#E8C38E';
+      ctx.font = '700 38px Vazirmatn, monospace';
+      ctx.fillText('۹۹٪', 360, 206);
+      ctx.font = '500 15px Vazirmatn, sans-serif';
+      ctx.fillStyle = '#B8A594';
+      ctx.fillText('اکسیژن · ۳۸.۲ درجه', 348, 234);
+    } else {
+      ctx.textAlign = 'left';
+      ctx.font = '600 18px sans-serif';
+      ctx.fillText('ELARA TELEMETRY · SINUS CALM', 24, 34);
+
+      ctx.fillStyle = '#6BE3B3';
+      ctx.font = '700 44px monospace';
+      ctx.fillText('84', 360, 108);
+      ctx.font = '500 16px sans-serif';
+      ctx.fillStyle = '#8FB9A8';
+      ctx.fillText('BPM · HR', 360, 132);
+
+      ctx.fillStyle = '#E8C38E';
+      ctx.font = '700 38px monospace';
+      ctx.fillText('99%', 360, 206);
+      ctx.font = '500 16px sans-serif';
+      ctx.fillStyle = '#8FB9A8';
+      ctx.fillText('SpO2 · 38.2°C', 360, 232);
+    }
+    ctx.textAlign = 'left';
 
     // Animated calm ECG waveform
     ctx.strokeStyle = '#6BE3B3';
@@ -1400,6 +1423,10 @@ export class VetSanctuaryScene {
 
   public setLightingMood(mood: LightingMood): void {
     this.targetMood = mood;
+  }
+
+  public setLanguage(lang: Language): void {
+    this.monitorLang = lang;
   }
 
   public setSelectedHotspot(id: HotspotId | null): void {

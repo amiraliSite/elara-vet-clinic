@@ -36,13 +36,13 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
             <h2
               className={`font-medium text-[#221914] text-balance ${
                 lang === 'fa'
-                  ? 'font-nastaliq leading-[2.08] py-1'
+                  ? 'font-persian-display leading-[1.35]'
                   : 'font-display leading-[1.15] tracking-tight'
               }`}
               style={{
                 fontSize:
                   lang === 'fa'
-                    ? 'clamp(1.55rem, 2.5vw, 2.25rem)'
+                    ? 'clamp(1.85rem, 2.9vw, 2.65rem)'
                     : 'clamp(1.75rem, 2.8vw, 2.5rem)',
               }}
             >
@@ -52,11 +52,11 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
               {t.philosophy.body}
             </p>
             <p
-              dir="rtl"
-              lang="fa"
-              className="mt-5 pt-4 border-t border-[#8C5630]/15 font-nastaliq text-lg text-[#9A6035] leading-[2.12]"
+              className={`mt-5 pt-4 border-t border-[#8C5630]/15 text-lg text-[#9A6035] ${
+                lang === 'fa' ? 'font-persian-display' : 'font-display italic'
+              }`}
             >
-              {t.philosophy.calligraphyQuote}
+              {t.philosophy.quote}
             </p>
           </motion.div>
 

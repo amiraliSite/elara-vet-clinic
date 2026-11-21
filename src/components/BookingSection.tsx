@@ -10,19 +10,19 @@ interface BookingSectionProps {
 
 type SpeciesKey = 'dog' | 'cat' | 'exotic';
 
-const TIME_SLOTS = ['09:30', '11:15', '14:00', '16:30', '18:45'];
-
 export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
   const [species, setSpecies] = useState<SpeciesKey>('dog');
   const [petName, setPetName] = useState('');
   const [serviceIndex, setServiceIndex] = useState(0);
   const [date, setDate] = useState('');
-  const [timeSlot, setTimeSlot] = useState(TIME_SLOTS[0]);
+  const [timeSlotIndex, setTimeSlotIndex] = useState(0);
   const [ownerName, setOwnerName] = useState('');
   const [contact, setContact] = useState('');
   const [notes, setNotes] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [submittedRef, setSubmittedRef] = useState<string | null>(null);
+
+  const selectedTimeSlot = t.booking.form.timeSlots[timeSlotIndex] ?? t.booking.form.timeSlots[0];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,13 +74,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
             <h2
               className={`font-medium text-[#221914] text-balance ${
                 lang === 'fa'
-                  ? 'font-nastaliq leading-[2.08] py-1'
+                  ? 'font-persian-display leading-[1.35]'
                   : 'font-display leading-[1.15] tracking-tight'
               }`}
               style={{
                 fontSize:
                   lang === 'fa'
-                    ? 'clamp(1.5rem, 2.5vw, 2.2rem)'
+                    ? 'clamp(1.85rem, 2.9vw, 2.65rem)'
                     : 'clamp(1.75rem, 2.8vw, 2.5rem)',
               }}
             >
@@ -133,7 +133,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                   <div className="flex items-center justify-between gap-4">
                     <span className="text-[#5C4B40]">{t.booking.form.dateLabel}</span>
                     <span className="font-medium text-[#221914] tabular-nums">
-                      {date} · {timeSlot}
+                      {date} · {selectedTimeSlot}
                     </span>
                   </div>
                 </div>
@@ -235,13 +235,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                       {t.booking.form.timeLabel}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
-                      {TIME_SLOTS.map((slot) => (
+                      {t.booking.form.timeSlots.map((slot, idx) => (
                         <button
-                          key={slot}
+                          key={idx}
                           type="button"
-                          onClick={() => setTimeSlot(slot)}
+                          onClick={() => setTimeSlotIndex(idx)}
                           className={`px-2.5 py-2 text-xs font-medium rounded-xl border tabular-nums transition-colors cursor-pointer ${
-                            timeSlot === slot
+                            timeSlotIndex === idx
                               ? 'bg-[#221914] border-[#221914] text-[#F5EFE8]'
                               : 'bg-white border-[#221914]/15 text-[#5C4B40] hover:border-[#B87B4B]'
                           }`}

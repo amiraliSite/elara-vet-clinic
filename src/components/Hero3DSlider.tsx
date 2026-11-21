@@ -115,13 +115,13 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
             <h1
               className={`font-medium text-[#F5EFE8] text-balance ${
                 lang === 'fa'
-                  ? 'font-nastaliq leading-[2.08] py-1'
+                  ? 'font-persian-display leading-[1.32]'
                   : 'font-display leading-[1.12] tracking-tight'
               }`}
               style={{
                 fontSize:
                   lang === 'fa'
-                    ? 'clamp(1.75rem, 3.05vw, 2.7rem)'
+                    ? 'clamp(2.05rem, 3.6vw, 3.25rem)'
                     : 'clamp(2.1rem, 3.8vw, 3.4rem)',
               }}
             >
@@ -129,11 +129,11 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
             </h1>
 
             <p
-              dir="rtl"
-              lang="fa"
-              className="mt-2 font-nastaliq text-base md:text-lg text-[#E6B283] leading-[2.12] py-0.5"
+              className={`mt-2.5 text-base md:text-lg text-[#E6B283] ${
+                lang === 'fa' ? 'font-persian-display leading-relaxed' : 'font-display italic'
+              }`}
             >
-              {t.hero.nastaliqVerse}
+              {t.hero.motto}
             </p>
 
             <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-[#E3D6C9] max-w-lg">
@@ -156,7 +156,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
             </div>
           </div>
 
-          {/* Trilingual Segmented Switcher */}
+          {/* Bilingual Segmented Switcher (FA / EN) */}
           <div className="pointer-events-auto self-start lg:self-auto flex flex-col items-start lg:items-end gap-2">
             <div
               role="group"
@@ -165,9 +165,8 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
             >
               {(
                 [
-                  { code: 'fa', label: 'FA · فارسی' },
-                  { code: 'en', label: 'EN · English' },
-                  { code: 'de', label: 'DE · Deutsch' },
+                  { code: 'fa', label: 'فارسی' },
+                  { code: 'en', label: 'English' },
                 ] as const
               ).map((item) => {
                 const active = lang === item.code;
@@ -176,7 +175,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
                     key={item.code}
                     type="button"
                     onClick={() => onChangeLang(item.code)}
-                    className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap shrink-0 cursor-pointer ${
+                    className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                       active
                         ? 'bg-[#B87B4B] text-[#18110C] font-semibold shadow-sm'
                         : 'text-[#D0C1B3] hover:text-white'
@@ -198,14 +197,16 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
           <div className="min-w-0">
             <div className="flex items-center gap-2.5 text-xs text-[#E0AA7A] font-medium mb-1">
               <span className="tabular-nums">
-                {String(activeSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+                {lang === 'fa'
+                  ? `${(activeSlide + 1).toLocaleString('fa-IR', { minimumIntegerDigits: 2 })} / ${totalSlides.toLocaleString('fa-IR', { minimumIntegerDigits: 2 })}`
+                  : `${String(activeSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
               </span>
               <span aria-hidden="true">·</span>
               <span>{current.tag}</span>
             </div>
             <h2
               className={`text-base md:text-lg font-medium text-[#F5EFE8] truncate ${
-                lang === 'fa' ? 'font-sans' : 'font-display'
+                lang === 'fa' ? 'font-persian-display' : 'font-display'
               }`}
             >
               {current.title}

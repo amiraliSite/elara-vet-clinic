@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ t, lang }) => {
         <a
           href="#sanctuary-slider"
           className={`font-semibold text-[#F5EFE8] whitespace-nowrap shrink-0 ${
-            lang === 'fa' ? 'font-nastaliq text-xl py-0.5' : 'font-display text-lg'
+            lang === 'fa' ? 'font-persian-display text-2xl' : 'font-display text-lg'
           }`}
         >
           {t.brand}
@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ t, lang }) => {
           <a
             href="#sanctuary-slider"
             className={`font-semibold text-[#F5EFE8] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D19A6B] ${
-              lang === 'fa' ? 'font-nastaliq text-2xl py-1' : 'font-display text-xl tracking-tight'
+              lang === 'fa' ? 'font-persian-display text-2xl' : 'font-display text-xl tracking-tight'
             }`}
           >
             {t.brand}

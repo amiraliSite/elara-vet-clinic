@@ -1,6 +1,6 @@
 import type { ClinicImageKey } from '../data/clinicMedia';
 
-export type Language = 'en' | 'fa' | 'de';
+export type Language = 'fa' | 'en';
 
 export type CameraPreset = 'overview' | 'companions' | 'diagnostics' | 'lamp';
 export type LightingMood = 'daylight' | 'evening';
@@ -29,7 +29,7 @@ export interface TranslationBundle {
   hero: {
     kicker: string;
     title: string;
-    nastaliqVerse: string;
+    motto: string;
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
@@ -68,7 +68,7 @@ export interface TranslationBundle {
     kicker: string;
     title: string;
     body: string;
-    calligraphyQuote: string;
+    quote: string;
     imageCaption: string;
     metrics: {
       value: string;
@@ -123,6 +123,7 @@ export interface TranslationBundle {
       services: string[];
       dateLabel: string;
       timeLabel: string;
+      timeSlots: string[];
       ownerNameLabel: string;
       ownerNamePlaceholder: string;
       contactLabel: string;
@@ -179,7 +180,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     hero: {
       kicker: 'کلینیک تخصصی حیوانات خانگی · تهران و مونیخ',
       title: 'مهرِ بی‌مرز و دقتِ پزشکی در پناهگاه آرامِ الارا',
-      nastaliqVerse: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
+      motto: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
       subtitle:
         'تلفیق معماری برنز و سنگ طبیعی، تصویربرداری دقیق و بخش‌های کاملاً مجزای سگ و گربه برای تجربه‌ای صمیمی و بدون استرس.',
       primaryCta: 'رزرو مشاوره تخصصی',
@@ -200,7 +201,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         {
           id: 'diagnostics',
           imageKey: 'diagnostics',
-          title: 'سوئیت تصویربرداری MRI و سونوگرافی داپلر',
+          title: 'سوئیت تصویربرداری ام‌آرآی و سونوگرافی داپلر',
           subtitle: 'تجهیزات تیتانیومی بی‌صدا با نورپردازی غیرمستقیم و دقت تشخیصی بالا.',
           tag: '۰۲ · تشخیص دقیق',
         },
@@ -208,7 +209,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
           id: 'surgery',
           imageKey: 'surgery',
           title: 'اتاق میکروجراحی استریل و دندانپزشکی',
-          subtitle: 'میکروسکوپ جراحی لایکا، پایش بیهوشی اختصاصی و ایمنی کامل بیمار.',
+          subtitle: 'میکروسکوپ جراحی دقیق، پایش بیهوشی اختصاصی و ایمنی کامل بیمار.',
           tag: '۰۳ · جراحی ظریف',
         },
         {
@@ -249,7 +250,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       views: {
         overview: 'نمای کلی',
         companions: 'بخش بیماران',
-        diagnostics: 'تله‌متری',
+        diagnostics: 'علائم حیاتی',
         lamp: 'چراغ جراحی',
       },
       explodeLabel: 'تفکیک لایه‌ها',
@@ -265,7 +266,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         },
         monitor: {
           title: 'مانیتورینگ دقیق علائم حیاتی',
-          detail: 'ثبت پیوسته نوار قلب (ECG)، سطح اکسیژن خون و فشار خون داپلر با دقت بیمارستانی.',
+          detail: 'ثبت پیوسته نوار قلب، سطح اکسیژن خون و فشار خون داپلر با دقت بیمارستانی.',
         },
         table: {
           title: 'میز معاینه سنگ تراورتن گرمایشی',
@@ -281,8 +282,8 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     philosophy: {
       kicker: 'معماری درمانی بدون تنش',
       title: 'دامپزشکی تخصصی به دور از اضطراب محیط‌های درمانی',
-      body: 'تک‌تک جزئیات کلینیک تخصصی الارا — از دیوارهای سنگ تراورتن جاذب صدا و جزییات برنز گرم تا بخش‌های کاملاً تفکیک‌شده سگ‌ها و گربه‌ها — برای کاهش هورمون استرس پیش از شروع معاینه طراحی شده‌اند.',
-      calligraphyQuote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
+      body: 'تک‌تک جزئیات کلینیک تخصصی الارا — از دیوارهای سنگ تراورتن جاذب صدا و جزئیات برنز گرم تا بخش‌های کاملاً تفکیک‌شده سگ‌ها و گربه‌ها — برای کاهش هورمون استرس پیش از شروع معاینه طراحی شده‌اند.',
+      quote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
       imageCaption: 'لابی اصلی کلینیک · سنگ تراورتن آکوستیک و پذیرش مجزای سگ و گربه',
       metrics: [
         { value: '۲۴/۷', label: 'مراقبت ویژه و اورژانس' },
@@ -293,7 +294,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     },
     specialties: {
       kicker: 'دپارتمان‌های تخصصی',
-      title: 'تشخیص دقیق و جراحی‌های کم‌تهاجمی با استاندارد اروپایی',
+      title: 'تشخیص دقیق و جراحی‌های کم‌تهاجمی با استاندارد روز',
       subtitle:
         'در هر دپارتمان، پیشرفته‌ترین تجهیزات تصویربرداری و جراحی در کنار ویزیت‌های صبورانه و بدون عجله قرار می‌گیرند.',
       items: [
@@ -301,15 +302,15 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
           num: '۰۱.',
           title: 'تصویربرداری تشخیصی و سونوگرافی داپلر',
           description:
-            'تصویربرداری MRI تخصصی حیوانات، سی‌تی‌اسکن کم‌دوز و اکوکاردیوگرافی رنگی قلب بدون نیاز به مهار فیزیکی پراسترس.',
-          detail: 'گزارش رادیولوژیست در همان روز · آرشیو دیجیتال DICOM',
+            'تصویربرداری ام‌آرآی تخصصی حیوانات، سی‌تی‌اسکن کم‌دوز و اکوکاردیوگرافی رنگی قلب بدون نیاز به مهار فیزیکی پراسترس.',
+          detail: 'گزارش رادیولوژیست در همان روز · آرشیو دیجیتال تصاویر',
           imageKey: 'diagnostics',
         },
         {
           num: '۰۲.',
           title: 'میکروجراحی کم‌تهاجمی و دندانپزشکی',
           description:
-            'جراحی‌های لاپاراسکوپی بافت نرم، رادیوگرافی دیجیتال دندان و جراحی‌های ظریف زیر میکروسکوپ لایکا در اتاق عمل استریل.',
+            'جراحی‌های لاپاراسکوپی بافت نرم، رادیوگرافی دیجیتال دندان و جراحی‌های ظریف زیر میکروسکوپ در اتاق عمل استریل.',
           detail: 'حضور متخصص بیهوشی دامپزشکی در تمام عمل‌ها',
           imageKey: 'surgery',
         },
@@ -318,14 +319,14 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
           title: 'بخش اختصاصی طب داخلی و کلیوی گربه‌ها',
           description:
             'اتاق‌های معاینه با دیفیوزر فرمون آرام‌بخش ویژه گربه‌ها؛ بدون صدای پارس سگ، با میزهای گرم و مراقبت تخصصی سالمندان.',
-          detail: 'منطبق با استاندارد طلایی ISFM دوستدار گربه',
+          detail: 'منطبق با استاندارد طلایی کلینیک دوستدار گربه',
         },
         {
           num: '۰۴.',
           title: 'قلب‌وعروق، ارتوپدی و طول عمر سالمندان',
           description:
             'اکوکاردیوگرافی پیشگیرانه، توان‌بخشی مفاصل و برنامه تغذیه بالینی اختصاصی برای افزایش کیفیت زندگی سگ‌ها و گربه‌های مسن.',
-          detail: 'چکاپ جامع بیومارکرهای طول عمر هر ۶ ماه',
+          detail: 'چکاپ جامع شاخص‌های سلامت هر ۶ ماه',
         },
       ],
     },
@@ -333,7 +334,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       kicker: 'فضاهای داخلی کلینیک',
       title: 'مراقبت محترمانه در فضایی آرام و روشن',
       subtitle:
-        'فضاهای درمانی و اتاق‌های آرامش کلینیک را بر اساس نیاز پت خود بررسی کنید.',
+        'فضاهای درمانی و اتاق‌های آرامش کلینیک را بر اساس نیاز حیوان خانگی خود بررسی کنید.',
       filters: {
         all: 'همه فضاها',
         canine: 'بخش سگ‌ها',
@@ -381,7 +382,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       kicker: 'نوبت‌دهی اختصاصی',
       title: 'رزرو ویزیت آرام و بدون معطلی',
       subtitle:
-        'برای هر ویزیت اولیه، ۴۵ دقیقه زمان کامل در بخش اختصاصی متناسب با گونه پت شما رزرو می‌شود.',
+        'برای هر ویزیت اولیه، ۴۵ دقیقه زمان کامل در بخش اختصاصی متناسب با گونه همراه شما رزرو می‌شود.',
       highlights: [
         {
           title: 'ورود مستقیم و مجزا',
@@ -392,8 +393,8 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
           text: 'تیم پزشکی آزمایش‌ها و مدارک قبلی را پیش از حضور شما مطالعه و تحلیل می‌کند.',
         },
         {
-          title: 'مشاوره به سه زبان زنده',
-          text: 'تیم متخصص ما به زبان‌های فارسی، انگلیسی و آلمانی پاسخگوی کامل شماست.',
+          title: 'مشاوره دوزبانه (فارسی و انگلیسی)',
+          text: 'تیم متخصص ما به هر دو زبان فارسی و انگلیسی پاسخگوی کامل شماست.',
         },
       ],
       form: {
@@ -408,21 +409,22 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         serviceLabel: 'خدمت تخصصی مورد نیاز',
         services: [
           'چکاپ کامل سلامت و طول عمر',
-          'تصویربرداری تشخیصی (سونوگرافی / MRI / CT)',
+          'تصویربرداری تشخیصی (سونوگرافی / ام‌آرآی / سی‌تی‌اسکن)',
           'طب داخلی و مراقبت کلیوی گربه‌ها',
           'دندانپزشکی و جراحی میکروسکوپی',
           'قلب‌وعروق و اکوکاردیوگرافی',
         ],
         dateLabel: 'تاریخ پیشنهادی',
         timeLabel: 'بازه زمانی',
+        timeSlots: ['۰۹:۳۰', '۱۱:۱۵', '۱۴:۰۰', '۱۶:۳۰', '۱۸:۴۵'],
         ownerNameLabel: 'نام و نام خانوادگی شما',
         ownerNamePlaceholder: 'نام کامل',
         contactLabel: 'ایمیل یا شماره تماس',
-        contactPlaceholder: '0912... یا name@example.com',
+        contactPlaceholder: '۰۹۱۲... یا نشانی ایمیل',
         notesLabel: 'توضیحات بالینی (اختیاری)',
         notesPlaceholder: 'علائم فعلی، سوابق درمانی یا حساسیت‌های رفتاری را بنویسید...',
         submitBtn: 'ثبت درخواست نوبت',
-        errorRequired: 'لطفاً نام پت، نام خود و تاریخ پیشنهادی را وارد کنید.',
+        errorRequired: 'لطفاً نام حیوان خانگی، نام خود و تاریخ پیشنهادی را وارد کنید.',
         errorContact: 'لطفاً یک شماره تماس یا نشانی ایمیل معتبر وارد کنید.',
         successTitle: 'درخواست نوبت با موفقیت ثبت شد',
         successBody:
@@ -477,7 +479,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     hero: {
       kicker: 'Specialized Companion Medicine · Munich & Tehran',
       title: 'Calm clinical precision for every companion.',
-      nastaliqVerse: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
+      motto: '“Every quiet breath of our companions is a trust held in science and kindness.”',
       subtitle:
         'Experience our warm bronze-and-limestone veterinary sanctuary in interactive 3D. Auto-advancing spatial gallery, board-certified diagnostics, and separated canine and feline wings.',
       primaryCta: 'Schedule Consultation',
@@ -505,7 +507,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         {
           id: 'surgery',
           imageKey: 'surgery',
-          title: 'Leica Micro-Surgery & Dental Suite',
+          title: 'Micro-Surgery & Optical Dental Suite',
           subtitle: 'Positive-pressure sterile theatre with a dedicated veterinary anesthesiologist.',
           tag: '03 · Micro-Surgery',
         },
@@ -580,7 +582,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       kicker: 'Architectural Healing Environment',
       title: 'Veterinary medicine without clinical anxiety.',
       body: 'Every material inside Elara Vet Sanctuary—from acoustic travertine walls and warm bronze details to species-isolated examination wings—is engineered to lower cortisol levels before a stethoscope ever touches your companion.',
-      calligraphyQuote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
+      quote: '“A tranquil heart is already half the healing.”',
       imageCaption: 'Main sunlit atrium · Acoustic travertine & separated canine/feline reception wings',
       metrics: [
         { value: '24/7', label: 'Specialist Critical Care' },
@@ -593,21 +595,21 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       kicker: 'Clinical Disciplines',
       title: 'Precision diagnostics and gentle surgical craft.',
       subtitle:
-        'Each discipline pairs hospital-grade European medical technology with unhurried, specialist-led appointments.',
+        'Each discipline pairs hospital-grade medical technology with unhurried, specialist-led appointments.',
       items: [
         {
           num: '01.',
           title: 'Diagnostic Imaging & Doppler Ultrasound',
           description:
             'High-field veterinary MRI, low-dose 64-slice CT, and cardiac color-Doppler echocardiography with zero-restraint gentle positioning.',
-          detail: 'Same-day radiologist report · DICOM digital archive',
+          detail: 'Same-day radiologist report · Digital imaging archive',
           imageKey: 'diagnostics',
         },
         {
           num: '02.',
           title: 'Minimally Invasive Micro-Surgery & Dentistry',
           description:
-            'Laparoscopic soft-tissue procedures, optical dental radiography, and Leica-assisted microsurgery in positive-pressure sterile suites.',
+            'Laparoscopic soft-tissue procedures, optical dental radiography, and microscope-assisted surgery in positive-pressure sterile suites.',
           detail: 'Dedicated veterinary anesthesiologist per case',
           imageKey: 'surgery',
         },
@@ -616,7 +618,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
           title: 'Feline-Only Internal & Renal Medicine',
           description:
             'Pheromone-diffused consultation rooms exclusively for cats—no barking acoustics, warm linen tables, and specialized geriatric renal care.',
-          detail: 'ISFM Gold-Standard Cat Friendly Practice',
+          detail: 'Gold-Standard Cat Friendly Practice',
         },
         {
           num: '04.',
@@ -690,8 +692,8 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
           text: 'Our specialist team reviews prior bloodwork and imaging before you arrive.',
         },
         {
-          title: 'Trilingual Care Team',
-          text: 'Consultations available fluently in English, Persian (فارسی), and German (Deutsch).',
+          title: 'Bilingual Care Team',
+          text: 'Consultations available fluently in both English and Persian.',
         },
       ],
       form: {
@@ -713,6 +715,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         ],
         dateLabel: 'Preferred Date',
         timeLabel: 'Time Window',
+        timeSlots: ['09:30', '11:15', '14:00', '16:30', '18:45'],
         ownerNameLabel: 'Your Full Name',
         ownerNamePlaceholder: 'Full name',
         contactLabel: 'Email or Phone',
@@ -758,304 +761,6 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       locationsDetail: 'Maximilianstraße Suite, Munich · Jordan Sanctuary, Tehran',
       languageTitle: 'Language',
       copyright: '© 2026 Elara Vet Sanctuary. All rights reserved.',
-    },
-  },
-
-  de: {
-    langLabel: 'Deutsch',
-    dir: 'ltr',
-    brand: 'Elara Tierklinik',
-    nav: {
-      sanctuary: '3D-Galerie',
-      explorer3d: '3D-Klinik',
-      specialties: 'Fachbereiche',
-      gallery: 'Einblicke',
-      book: 'Termin',
-    },
-    hero: {
-      kicker: 'Spezialisierte Kleintiermedizin · München & Teheran',
-      title: 'Ruhige klinische Präzision für Ihren Gefährten.',
-      nastaliqVerse: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
-      subtitle:
-        'Erleben Sie unsere warme Bronze-und-Kalkstein-Klinik in interaktivem 3D. Hochfeld-Diagnostik, Mikrochirurgie und getrennt geführte Hunde- und Katzenflügel.',
-      primaryCta: 'Sprechstunde buchen',
-      secondaryCta: '3D-Untersuchungsraum',
-      autoPlayOn: 'Auto-Slider aktiv',
-      autoPlayOff: 'Slider pausiert',
-      prevSlide: 'Vorheriges Foto',
-      nextSlide: 'Nächstes Foto',
-      slideHint: 'Maus bewegen für 3D-Tiefe · Automatischer Bildwechsel alle 4s',
-      slides: [
-        {
-          id: 'atrium',
-          imageKey: 'hero',
-          title: 'Sonnendurchflutetes Travertin-Atrium',
-          subtitle: 'Schallabsorbierender Naturstein und grüne Innenhöfe beruhigen Patienten bei Ankunft.',
-          tag: '01 · Klinikarchitektur',
-        },
-        {
-          id: 'diagnostics',
-          imageKey: 'diagnostics',
-          title: 'Hochfeld-MRT & Farbdoppler-Sonografie',
-          subtitle: 'Flüsterleise Medizintechnik aus gebürstetem Titan für stressarme Bildgebung.',
-          tag: '02 · Präzisionsdiagnostik',
-        },
-        {
-          id: 'surgery',
-          imageKey: 'surgery',
-          title: 'Leica Mikrochirurgie & Zahnmedizin',
-          subtitle: 'Sterile Überdruck-OP-Suite mit kontinuierlicher Facharzt-Anästhesie.',
-          tag: '03 · Mikrochirurgie',
-        },
-        {
-          id: 'canine',
-          imageKey: 'dog',
-          title: 'Sonnige Hunde-Wartelounge',
-          subtitle: 'Warme Natursteinbänke und Tageslicht statt enger Metallkäfige.',
-          tag: '04 · Hundebereich',
-        },
-        {
-          id: 'feline',
-          imageKey: 'cat',
-          title: 'Schallisolierte Katzen-Suite',
-          subtitle: 'Leinenkissen und beruhigende Pheromone ohne Hundegebell.',
-          tag: '05 · Katzenstation',
-        },
-        {
-          id: 'specialists',
-          imageKey: 'team',
-          title: 'Interdisziplinäre Facharztvisite',
-          subtitle: '45 Minuten Zeit pro Erstgespräch durch zwei spezialisierte Tierärzte.',
-          tag: '06 · Fachteam',
-        },
-      ],
-    },
-    explorer: {
-      kicker: 'Interaktive 3D-Praxissuite',
-      title: 'Erkunden Sie unseren Behandlungsraum in Echtzeit-3D.',
-      subtitle:
-        'Drehen Sie den beheizten Travertin-Behandlungstisch, prüfen Sie die EKG-Telemetrie, trennen Sie Raumschichten und wechseln Sie zwischen Tages- und Abendstimmung.',
-      dragHint: 'Ziehen zum Drehen · Scrollen zum Zoomen · Instrumente anklicken',
-      fallbackTitle: 'Elara Tierklinik',
-    },
-    dock: {
-      hideControls: 'Steuerung ausblenden',
-      showControls: '3D-Steuerung öffnen',
-      viewsLabel: 'Kamera',
-      views: {
-        overview: 'Atrium',
-        companions: 'Patienten',
-        diagnostics: 'Telemetrie',
-        lamp: 'OP-Leuchte',
-      },
-      explodeLabel: 'Explosionsansicht',
-      moodLabel: 'Lichtstimmung',
-      moods: {
-        daylight: 'Tageslicht',
-        evening: 'Abendstation',
-      },
-      hotspots: {
-        companions: {
-          title: 'Stressfreie Patienten-Lounge',
-          detail: 'Akustisch gedämpfte Leinenkissen senken die Herzfrequenz vor der Untersuchung um bis zu 32 %.',
-        },
-        monitor: {
-          title: 'Multiparameter-Vitalmonitoring',
-          detail: 'Kontinuierliches EKG, SpO2-Sättigung und nicht-invasive Doppler-Blutdruckmessung.',
-        },
-        table: {
-          title: 'Beheizter Travertin-Behandlungstisch',
-          detail: 'Vibrationsfreie Hydraulik mit körperwarm temperierter Keramikfläche bei 38,2 °C.',
-        },
-        lamp: {
-          title: 'Schattenfreie OP-Präzisionsleuchte',
-          detail: 'Blendfreies Lichtspektrum zum Schutz empfindlicher Tieraugen während der Diagnostik.',
-        },
-      },
-      inspectHint: 'Klicken Sie auf eine 3D-Station in der Szene, um Details einzusehen.',
-    },
-    philosophy: {
-      kicker: 'Heilende Klinikarchitektur',
-      title: 'Spitzenmedizin ohne klassischen Praxisstress.',
-      body: 'Jedes Detail der Elara Tierklinik – von schallabsorbierenden Travertinwänden und warmen Bronzeakzenten bis zu strikt getrennten Hunde- und Katzenstationen – senkt den Cortisolspiegel noch vor der ersten Untersuchung.',
-      calligraphyQuote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
-      imageCaption: 'Lichtdurchflutetes Atrium · Akustischer Travertin & getrennte Empfangsbereiche',
-      metrics: [
-        { value: '24/7', label: 'Intensiv- & Notfallmedizin' },
-        { value: '< 12 Min.', label: 'Inhouse-Laboranalyse' },
-        { value: '42 dB', label: 'Raumakustik-Standard' },
-        { value: '3', label: 'Spezialisierte Bildgebungen' },
-      ],
-    },
-    specialties: {
-      kicker: 'Klinische Fachabteilungen',
-      title: 'Präzisionsdiagnostik und schonende Mikrochirurgie.',
-      subtitle:
-        'Jeder Fachbereich verbindet modernste europäische Medizintechnik mit ruhigen, ungestörten Facharztterminen.',
-      items: [
-        {
-          num: '01.',
-          title: 'Bildgebung & Farbdoppler-Sonografie',
-          description:
-            'Hochfeld-Veterinär-MRT, strahlungsarmes 64-Zeilen-CT und kardiologische Farbdoppler-Echokardiografie bei sanfter Lagerung.',
-          detail: 'Radiologischer Befund am selben Tag · DICOM-Archiv',
-          imageKey: 'diagnostics',
-        },
-        {
-          num: '02.',
-          title: 'Minimalinvasive Mikrochirurgie & Zahnmedizin',
-          description:
-            'Laparoskopische Eingriffe, digitales Dentalröntgen und Leica-gestützte Mikrochirurgie in Überdruck-OP-Sälen.',
-          detail: 'Dedizierte Fachtierärzte für Anästhesiologie',
-          imageKey: 'surgery',
-        },
-        {
-          num: '03.',
-          title: 'Reine Katzenmedizin & Nephrologie',
-          description:
-            'Pheromon-harmonisierte Katzenzimmer ohne Hundegebell, mit angewärmten Liegeflächen und spezialisierter Nierensprechstunde.',
-          detail: 'ISFM Gold-Standard Cat Friendly Clinic',
-        },
-        {
-          num: '04.',
-          title: 'Kardiologie, Orthopädie & Altersvorsorge',
-          description:
-            'Präventive Herzultraschalls, Gelenktherapie und maßgeschneiderte Ernährungsmedizin für Hunde und Katzen im Seniorenalter.',
-          detail: 'Halbjährliches Langlebigkeits-Biomarker-Profil',
-        },
-      ],
-    },
-    gallery: {
-      kicker: 'Einblicke in die Klinik',
-      title: 'Würdevolle Behandlung im ruhigen Tageslicht.',
-      subtitle:
-        'Filtern Sie unsere Behandlungsräume und Ruhelounges nach Tierart und Fachbereich.',
-      filters: {
-        all: 'Alle Bereiche',
-        canine: 'Hundebereich',
-        feline: 'Katzenstation',
-        team: 'Fachteam',
-      },
-      cards: [
-        {
-          id: 'dog-lounge',
-          category: 'canine',
-          imageKey: 'dog',
-          title: 'Sonnige Hunde-Wartelounge',
-          meta: 'Hundestation · Erdgeschoss',
-          description: 'Warme Natursteinbänke und Tageslicht ersetzen enge metallische Wartekäfige.',
-        },
-        {
-          id: 'cat-room',
-          category: 'feline',
-          imageKey: 'cat',
-          title: 'Schallisolierte Katzen-Suite',
-          meta: 'Katzenbereich · Akustisch getrennt',
-          description: 'Weiche Leinenkissen und ruhige Fensterplätze für entspannte Untersuchungen.',
-        },
-        {
-          id: 'team-care',
-          category: 'team',
-          imageKey: 'team',
-          title: 'Interdisziplinäre Facharztvisite',
-          meta: 'Innere Medizin · Kardiologie',
-          description: 'Gemeinsame Befundung durch zwei Fachtierärzte ohne Zeitdruck für Ihren Vierbeiner.',
-          wide: true,
-        },
-        {
-          id: 'atrium',
-          category: 'canine',
-          imageKey: 'hero',
-          title: 'Botanischer Innenhof & Empfang',
-          meta: 'Rezeption · Reinluft-System',
-          description: 'Direkter Blick ins Grüne beruhigt sensible Hunde bereits beim Betreten der Klinik.',
-          wide: true,
-        },
-      ],
-    },
-    booking: {
-      kicker: 'Exklusive Terminvergabe',
-      title: 'Vereinbaren Sie eine ruhige Erstkonsultation.',
-      subtitle:
-        'Für jeden Ersttermin reservieren wir volle 45 Minuten in einem ruhigen, artgerecht getrennten Behandlungsflügel.',
-      highlights: [
-        {
-          title: 'Separater Direkteingang',
-          text: 'Auf Wunsch diskreter Seiteneingang für reaktive Hunde oder besonders scheue Katzen.',
-        },
-        {
-          title: 'Vorab-Befundprüfung',
-          text: 'Unser Fachteam sichtet vorliegende Blutbilder und Röntgenaufnahmen bereits vor Ihrem Termin.',
-        },
-        {
-          title: 'Dreisprachiges Fachteam',
-          text: 'Beratung fließend auf Deutsch, Englisch und Persisch (فارسی).',
-        },
-      ],
-      form: {
-        speciesLabel: 'Tierart',
-        species: {
-          dog: 'Hund',
-          cat: 'Katze',
-          exotic: 'Kleinsäuger / Vogel',
-        },
-        petNameLabel: 'Name des Tieres',
-        petNamePlaceholder: 'z. B. Milo, Luna',
-        serviceLabel: 'Gewünschter Fachbereich',
-        services: [
-          'Umfassender Gesundheits- & Alters-Check',
-          'Diagnostische Bildgebung (Ultraschall / MRT / CT)',
-          'Katzenmedizin & Nierendiagnostik',
-          'Zahnheilkunde & Mikrochirurgie',
-          'Kardiologie & Echokardiografie',
-        ],
-        dateLabel: 'Wunschdatum',
-        timeLabel: 'Zeitfenster',
-        ownerNameLabel: 'Ihr vollständiger Name',
-        ownerNamePlaceholder: 'Vor- und Nachname',
-        contactLabel: 'E-Mail oder Telefon',
-        contactPlaceholder: 'name@beispiel.de oder +49 ...',
-        notesLabel: 'Klinische Hinweise (Optional)',
-        notesPlaceholder: 'Symptome, Vorbefunde oder besondere Bedürfnisse Ihres Tieres...',
-        submitBtn: 'Terminanfrage absenden',
-        errorRequired: 'Bitte geben Sie den Namen Ihres Tieres, Ihren Namen und ein Wunschdatum an.',
-        errorContact: 'Bitte geben Sie eine gültige E-Mail-Adresse oder Telefonnummer ein.',
-        successTitle: 'Terminanfrage vorgemerkt',
-        successBody:
-          'Unsere Patientenaufnahme bestätigt Ihren privaten Ankunftstermin innerhalb von 30 Minuten.',
-        refLabel: 'Buchungsreferenz',
-        newRequestBtn: 'Weiteren Termin anfragen',
-      },
-    },
-    feedback: {
-      kicker: 'Besucher-Feedback',
-      title: 'Gefällt Ihnen das Erlebnis in der Elara Tierklinik?',
-      subtitle: 'Ihre Sternebewertung hilft unserem Team, den Online-Service weiter zu verfeinern.',
-      ratingLabels: [
-        'Verbesserungswürdig',
-        'Ausreichend',
-        'Gut',
-        'Sehr gut',
-        'Herausragend',
-      ],
-      commentLabel: 'Kurze Rückmeldung (Optional)',
-      commentPlaceholder: 'Teilen Sie uns gerne Ihren Eindruck mit...',
-      submitBtn: 'Bewertung senden',
-      laterBtn: 'Später',
-      closeAria: 'Bewertungsfenster schließen',
-      selectStarError: 'Bitte wählen Sie zuerst 1 bis 5 Sterne aus.',
-      thanksTitle: 'Vielen Dank für Ihre Bewertung',
-      thanksBody: 'Wir freuen uns sehr über Ihre Rückmeldung zur Elara Tierklinik.',
-    },
-    footer: {
-      tagline: 'Architektonische Wärme trifft auf spezialisierte Tiermedizin.',
-      hoursTitle: 'Sprechzeiten',
-      hoursDetail: 'Mo – Sa · 08:00 – 21:00 Uhr',
-      emergencyDetail: '24/7 Notdienst & Intensivstation',
-      locationsTitle: 'Klinikstandorte',
-      locationsDetail: 'Maximilianstraße, München · Jordan Sanctuary, Teheran',
-      languageTitle: 'Sprache',
-      copyright: '© 2026 Elara Tierklinik. Alle Rechte vorbehalten.',
     },
   },
 };

@@ -5,7 +5,7 @@
     --font-display: 'Fraunces', Georgia, serif;
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-persian: 'Vazirmatn', 'Plus Jakarta Sans', sans-serif;
-    --font-nastaliq: 'Noto Nastaliq Urdu', 'Vazirmatn', serif;
+    --font-persian-display: 'Lalezar', 'Vazirmatn', sans-serif;
     --ease-calm: cubic-bezier(0.16, 1, 0.3, 1);
 
     --bronze-500: #B87B4B;
@@ -33,15 +33,15 @@
   html[lang="fa"] h1,
   html[lang="fa"] h2,
   html[lang="fa"] .font-display {
-    font-family: var(--font-nastaliq);
+    font-family: var(--font-persian-display);
     letter-spacing: 0 !important;
-    line-height: 2.08;
+    line-height: 1.32;
   }
 }
 
-.font-nastaliq {
-  font-family: var(--font-nastaliq);
-  line-height: 2.15;
+.font-persian-display {
+  font-family: var(--font-persian-display);
+  line-height: 1.38;
   letter-spacing: 0 !important;
 }
 

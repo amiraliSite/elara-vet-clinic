@@ -49,6 +49,10 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
     };
   }, []);
 
+  useEffect(() => {
+    sceneRef.current?.setLanguage(lang);
+  }, [lang]);
+
   const handlePreset = (preset: CameraPreset) => {
     setActivePreset(preset);
     sceneRef.current?.setCameraPreset(preset);
@@ -84,13 +88,13 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
             <h2
               className={`font-medium text-[#F5EFE8] text-balance ${
                 lang === 'fa'
-                  ? 'font-nastaliq leading-[2.08] py-1'
+                  ? 'font-persian-display leading-[1.35]'
                   : 'font-display leading-[1.15] tracking-tight'
               }`}
               style={{
                 fontSize:
                   lang === 'fa'
-                    ? 'clamp(1.5rem, 2.5vw, 2.2rem)'
+                    ? 'clamp(1.85rem, 2.9vw, 2.65rem)'
                     : 'clamp(1.75rem, 2.8vw, 2.5rem)',
               }}
             >
@@ -188,8 +192,10 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
                       onChange={(e) => handleExplode(parseFloat(e.target.value))}
                       className="w-24 accent-[#D19A6B] cursor-pointer"
                     />
-                    <span className="tabular-nums text-[11px] text-[#B9A491] w-8 text-end">
-                      {Math.round(explode * 100)}%
+                    <span className="tabular-nums text-[11px] text-[#B9A491] w-9 text-end">
+                      {lang === 'fa'
+                        ? `${Math.round(explode * 100).toLocaleString('fa-IR')}٪`
+                        : `${Math.round(explode * 100)}%`}
                     </span>
                   </label>
 

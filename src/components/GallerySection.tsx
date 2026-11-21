@@ -36,13 +36,13 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ t, lang }) => {
             <h2
               className={`font-medium text-[#221914] text-balance ${
                 lang === 'fa'
-                  ? 'font-nastaliq leading-[2.08] py-1'
+                  ? 'font-persian-display leading-[1.35]'
                   : 'font-display leading-[1.15] tracking-tight'
               }`}
               style={{
                 fontSize:
                   lang === 'fa'
-                    ? 'clamp(1.5rem, 2.5vw, 2.2rem)'
+                    ? 'clamp(1.85rem, 2.9vw, 2.65rem)'
                     : 'clamp(1.75rem, 2.8vw, 2.5rem)',
               }}
             >
