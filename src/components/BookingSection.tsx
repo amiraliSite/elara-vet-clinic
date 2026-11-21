@@ -53,13 +53,17 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
   };
 
   return (
-    <section id="booking" className="relative py-20 md:py-24 bg-[#ECE2D6] overflow-hidden">
+    <section id="booking" className="relative py-20 md:py-24 bg-[#FFFBF5] overflow-hidden">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 end-0 w-[420px] h-[420px] rounded-full bg-[#B87B4B]/12 blur-3xl"
+        className="pointer-events-none absolute top-0 end-0 w-[420px] h-[420px] rounded-full bg-[#5EEAD4]/20 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 start-0 w-[380px] h-[380px] rounded-full bg-[#FDBA74]/22 blur-3xl"
       />
 
-      <div className="relative max-w-[1280px] mx-auto px-6">
+      <div className="relative max-w-[1260px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -68,11 +72,11 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5"
           >
-            <p className="text-xs font-medium text-[#9A6035] tracking-wide mb-2">
+            <p className="text-xs font-semibold text-[#EA580C] tracking-wide mb-2">
               {t.booking.kicker}
             </p>
             <h2
-              className={`font-medium text-[#221914] text-balance ${
+              className={`font-medium text-[#162A28] text-balance ${
                 lang === 'fa'
                   ? 'font-persian-display leading-[1.35]'
                   : 'font-display leading-[1.15] tracking-tight'
@@ -86,15 +90,18 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
             >
               {t.booking.title}
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-[#5C4B40]">
+            <p className="mt-4 text-[15px] leading-relaxed text-[#455B58]">
               {t.booking.subtitle}
             </p>
 
-            <div className="mt-8 space-y-5 pt-6 border-t border-[#8C5630]/15">
+            <div className="mt-8 space-y-4 pt-6 border-t border-[#0D9488]/15">
               {t.booking.highlights.map((item, idx) => (
-                <div key={idx}>
-                  <h3 className="text-sm font-semibold text-[#221914]">{item.title}</h3>
-                  <p className="mt-1 text-sm text-[#5C4B40] leading-relaxed">{item.text}</p>
+                <div
+                  key={idx}
+                  className="p-4 rounded-2xl bg-white border border-[#EED9BF] border-b-[3px] border-b-[#DFC2A0] shadow-xs"
+                >
+                  <h3 className="text-sm font-bold text-[#0F766E]">{item.title}</h3>
+                  <p className="mt-1 text-sm text-[#455B58] leading-relaxed">{item.text}</p>
                 </div>
               ))}
             </div>
@@ -105,34 +112,34 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 rounded-2xl bg-[#F5EFE8] border border-[#8C5630]/20 shadow-[0_22px_54px_rgba(34,25,20,0.12)] p-6 md:p-8"
+            className="lg:col-span-7 rounded-3xl bg-white border border-[#CCE6E1] border-b-[5px] border-b-[#A5D8CE] shadow-[0_22px_54px_rgba(13,148,136,0.12)] p-6 md:p-8"
           >
             {submittedRef ? (
               <div className="py-8 text-center max-w-md mx-auto">
-                <CheckCircle2 className="w-11 h-11 text-[#B87B4B] mx-auto mb-4" />
-                <h3 className="font-display text-2xl font-medium text-[#221914]">
+                <CheckCircle2 className="w-12 h-12 text-[#0D9488] mx-auto mb-4" />
+                <h3 className="font-display text-2xl font-medium text-[#162A28]">
                   {t.booking.form.successTitle}
                 </h3>
-                <p className="mt-2.5 text-sm text-[#5C4B40] leading-relaxed">
+                <p className="mt-2.5 text-sm text-[#455B58] leading-relaxed">
                   {t.booking.form.successBody}
                 </p>
 
-                <div className="mt-6 rounded-xl bg-[#EBE2D7] border border-[#8C5630]/20 p-4 text-start space-y-2 text-sm">
+                <div className="mt-6 rounded-2xl bg-[#EFF9F6] border border-[#0D9488]/20 p-4 text-start space-y-2 text-sm">
                   <div className="flex items-center justify-between gap-4">
-                    <span className="text-[#5C4B40]">{t.booking.form.refLabel}</span>
-                    <span className="font-mono font-semibold text-[#221914] tabular-nums">
+                    <span className="text-[#455B58]">{t.booking.form.refLabel}</span>
+                    <span className="font-mono font-bold text-[#EA580C] tabular-nums">
                       {submittedRef}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-4">
-                    <span className="text-[#5C4B40]">{t.booking.form.petNameLabel}</span>
-                    <span className="font-medium text-[#221914]">
+                    <span className="text-[#455B58]">{t.booking.form.petNameLabel}</span>
+                    <span className="font-semibold text-[#162A28]">
                       {petName} · {t.booking.form.species[species]}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-4">
-                    <span className="text-[#5C4B40]">{t.booking.form.dateLabel}</span>
-                    <span className="font-medium text-[#221914] tabular-nums">
+                    <span className="text-[#455B58]">{t.booking.form.dateLabel}</span>
+                    <span className="font-semibold text-[#162A28] tabular-nums">
                       {date} · {selectedTimeSlot}
                     </span>
                   </div>
@@ -141,7 +148,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="mt-6 px-5 py-2.5 text-sm font-medium rounded-xl border border-[#8C5630]/30 text-[#221914] hover:bg-[#EBE2D7] transition-colors cursor-pointer"
+                  className="btn-teal-3d mt-6 px-6 py-2.5 text-sm font-bold rounded-xl text-white transition-all cursor-pointer"
                 >
                   {t.booking.form.newRequestBtn}
                 </button>
@@ -149,10 +156,10 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 <div>
-                  <label className="block text-xs font-medium text-[#5C4B40] mb-2">
+                  <label className="block text-xs font-semibold text-[#455B58] mb-2">
                     {t.booking.form.speciesLabel}
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-2.5">
                     {(['dog', 'cat', 'exotic'] as const).map((sp) => {
                       const active = species === sp;
                       return (
@@ -160,10 +167,10 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                           key={sp}
                           type="button"
                           onClick={() => setSpecies(sp)}
-                          className={`py-2.5 px-3 text-xs sm:text-sm font-medium rounded-xl border transition-all cursor-pointer truncate ${
+                          className={`py-2.5 px-3 text-xs sm:text-sm font-semibold rounded-xl border transition-all cursor-pointer truncate ${
                             active
-                              ? 'bg-[#B87B4B] border-[#9A6035] text-[#18110C] font-semibold shadow-sm'
-                              : 'bg-[#EBE2D7]/75 border-[#8C5630]/15 text-[#221914] hover:bg-[#EBE2D7]'
+                              ? 'btn-teal-3d text-white border-transparent'
+                              : 'bg-[#F3FAF8] border-[#BCE3DA] text-[#284744] hover:bg-[#E4F5F1]'
                           }`}
                         >
                           {t.booking.form.species[sp]}
@@ -177,7 +184,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                   <div>
                     <label
                       htmlFor="pet-name"
-                      className="block text-xs font-medium text-[#5C4B40] mb-1.5"
+                      className="block text-xs font-semibold text-[#455B58] mb-1.5"
                     >
                       {t.booking.form.petNameLabel}
                     </label>
@@ -187,13 +194,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                       value={petName}
                       onChange={(e) => setPetName(e.target.value)}
                       placeholder={t.booking.form.petNamePlaceholder}
-                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-white border border-[#221914]/15 text-[#221914] placeholder:text-[#9A8B7E] focus:outline-none focus:border-[#B87B4B]"
+                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-[#FFFDF9] border border-[#CBE4DF] text-[#162A28] placeholder:text-[#8CA39F] focus:outline-none focus:border-[#0D9488]"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="service-select"
-                      className="block text-xs font-medium text-[#5C4B40] mb-1.5"
+                      className="block text-xs font-semibold text-[#455B58] mb-1.5"
                     >
                       {t.booking.form.serviceLabel}
                     </label>
@@ -201,7 +208,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                       id="service-select"
                       value={serviceIndex}
                       onChange={(e) => setServiceIndex(Number(e.target.value))}
-                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-white border border-[#221914]/15 text-[#221914] focus:outline-none focus:border-[#B87B4B]"
+                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-[#FFFDF9] border border-[#CBE4DF] text-[#162A28] focus:outline-none focus:border-[#0D9488]"
                     >
                       {t.booking.form.services.map((srv, idx) => (
                         <option key={idx} value={idx}>
@@ -216,9 +223,9 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                   <div>
                     <label
                       htmlFor="visit-date"
-                      className="flex items-center gap-1.5 text-xs font-medium text-[#5C4B40] mb-1.5"
+                      className="flex items-center gap-1.5 text-xs font-semibold text-[#455B58] mb-1.5"
                     >
-                      <Calendar className="w-3.5 h-3.5 text-[#9A6035]" />
+                      <Calendar className="w-3.5 h-3.5 text-[#EA580C]" />
                       {t.booking.form.dateLabel}
                     </label>
                     <input
@@ -226,12 +233,12 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                       type="date"
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-white border border-[#221914]/15 text-[#221914] focus:outline-none focus:border-[#B87B4B]"
+                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-[#FFFDF9] border border-[#CBE4DF] text-[#162A28] focus:outline-none focus:border-[#0D9488]"
                     />
                   </div>
                   <div>
-                    <span className="flex items-center gap-1.5 text-xs font-medium text-[#5C4B40] mb-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#9A6035]" />
+                    <span className="flex items-center gap-1.5 text-xs font-semibold text-[#455B58] mb-1.5">
+                      <Clock className="w-3.5 h-3.5 text-[#EA580C]" />
                       {t.booking.form.timeLabel}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -240,10 +247,10 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                           key={idx}
                           type="button"
                           onClick={() => setTimeSlotIndex(idx)}
-                          className={`px-2.5 py-2 text-xs font-medium rounded-xl border tabular-nums transition-colors cursor-pointer ${
+                          className={`px-2.5 py-2 text-xs font-semibold rounded-xl border tabular-nums transition-colors cursor-pointer ${
                             timeSlotIndex === idx
-                              ? 'bg-[#221914] border-[#221914] text-[#F5EFE8]'
-                              : 'bg-white border-[#221914]/15 text-[#5C4B40] hover:border-[#B87B4B]'
+                              ? 'bg-[#0D9488] border-[#0F766E] text-white shadow-xs'
+                              : 'bg-[#FFFDF9] border-[#CBE4DF] text-[#455B58] hover:border-[#F97316]'
                           }`}
                         >
                           {slot}
@@ -257,7 +264,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                   <div>
                     <label
                       htmlFor="owner-name"
-                      className="block text-xs font-medium text-[#5C4B40] mb-1.5"
+                      className="block text-xs font-semibold text-[#455B58] mb-1.5"
                     >
                       {t.booking.form.ownerNameLabel}
                     </label>
@@ -267,13 +274,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                       value={ownerName}
                       onChange={(e) => setOwnerName(e.target.value)}
                       placeholder={t.booking.form.ownerNamePlaceholder}
-                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-white border border-[#221914]/15 text-[#221914] placeholder:text-[#9A8B7E] focus:outline-none focus:border-[#B87B4B]"
+                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-[#FFFDF9] border border-[#CBE4DF] text-[#162A28] placeholder:text-[#8CA39F] focus:outline-none focus:border-[#0D9488]"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="owner-contact"
-                      className="block text-xs font-medium text-[#5C4B40] mb-1.5"
+                      className="block text-xs font-semibold text-[#455B58] mb-1.5"
                     >
                       {t.booking.form.contactLabel}
                     </label>
@@ -283,7 +290,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                       placeholder={t.booking.form.contactPlaceholder}
-                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-white border border-[#221914]/15 text-[#221914] placeholder:text-[#9A8B7E] focus:outline-none focus:border-[#B87B4B]"
+                      className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-[#FFFDF9] border border-[#CBE4DF] text-[#162A28] placeholder:text-[#8CA39F] focus:outline-none focus:border-[#0D9488]"
                     />
                   </div>
                 </div>
@@ -291,7 +298,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                 <div>
                   <label
                     htmlFor="clinical-notes"
-                    className="block text-xs font-medium text-[#5C4B40] mb-1.5"
+                    className="block text-xs font-semibold text-[#455B58] mb-1.5"
                   >
                     {t.booking.form.notesLabel}
                   </label>
@@ -301,19 +308,19 @@ export const BookingSection: React.FC<BookingSectionProps> = ({ t, lang }) => {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder={t.booking.form.notesPlaceholder}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-white border border-[#221914]/15 text-[#221914] placeholder:text-[#9A8B7E] focus:outline-none focus:border-[#B87B4B]"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-xl bg-[#FFFDF9] border border-[#CBE4DF] text-[#162A28] placeholder:text-[#8CA39F] focus:outline-none focus:border-[#0D9488]"
                   />
                 </div>
 
                 {error && (
-                  <p role="alert" className="text-xs font-medium text-[#9B2C2C] bg-[#FEE2E2] px-3.5 py-2.5 rounded-xl">
+                  <p role="alert" className="text-xs font-semibold text-[#B91C1C] bg-[#FEE2E2] px-3.5 py-2.5 rounded-xl">
                     {error}
                   </p>
                 )}
 
                 <button
                   type="submit"
-                  className="btn-bronze-3d w-full py-3 px-5 text-sm font-semibold rounded-xl text-[#18110C] transition-all duration-200 cursor-pointer"
+                  className="btn-joy-3d w-full py-3.5 px-5 text-sm font-bold rounded-xl text-white transition-all duration-200 cursor-pointer"
                 >
                   {t.booking.form.submitBtn}
                 </button>

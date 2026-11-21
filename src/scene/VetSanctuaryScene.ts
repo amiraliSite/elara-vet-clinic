@@ -15,10 +15,10 @@ const _c1 = new THREE.Color();
 const _c2 = new THREE.Color();
 const _dummy = new THREE.Object3D();
 
-const DAY_BG = new THREE.Color('#1B1410');
-const EVENING_BG = new THREE.Color('#110C09');
-const DAY_KEY_COLOR = new THREE.Color('#FFEEDB');
-const EVENING_KEY_COLOR = new THREE.Color('#E3AB78');
+const DAY_BG = new THREE.Color('#EAF6F2');
+const EVENING_BG = new THREE.Color('#273549');
+const DAY_KEY_COLOR = new THREE.Color('#FFF8EC');
+const EVENING_KEY_COLOR = new THREE.Color('#FDBA74');
 
 interface CameraTarget {
   pos: THREE.Vector3;
@@ -246,7 +246,7 @@ export class VetSanctuaryScene {
 
     this.scene = new THREE.Scene();
     this.scene.background = DAY_BG.clone();
-    this.scene.fog = new THREE.FogExp2('#1B1410', 0.042);
+    this.scene.fog = new THREE.FogExp2('#EAF6F2', 0.03);
 
     // Mandatory studio environment map via RoomEnvironment
     const pmrem = new THREE.PMREMGenerator(this.renderer);
@@ -1336,7 +1336,7 @@ export class VetSanctuaryScene {
         this.trackGeo(new THREE.RingGeometry(st.radius * 0.62, st.radius * 0.67, 40)),
         this.trackMat(
           new THREE.MeshBasicMaterial({
-            color: '#D4AF63',
+            color: '#0D9488',
             transparent: true,
             opacity: 0.0,
             side: THREE.DoubleSide,
@@ -1498,9 +1498,9 @@ export class VetSanctuaryScene {
     }
     _c2.copy(DAY_KEY_COLOR).lerp(EVENING_KEY_COLOR, this.moodBlend);
     this.keyLight.color.copy(_c2);
-    this.keyLight.intensity = THREE.MathUtils.lerp(2.2, 0.9, this.moodBlend);
-    this.hemiLight.intensity = THREE.MathUtils.lerp(0.85, 0.42, this.moodBlend);
-    this.lampSpotlight.intensity = THREE.MathUtils.lerp(1.4, 2.7, this.moodBlend);
+    this.keyLight.intensity = THREE.MathUtils.lerp(2.3, 1.05, this.moodBlend);
+    this.hemiLight.intensity = THREE.MathUtils.lerp(1.05, 0.55, this.moodBlend);
+    this.lampSpotlight.intensity = THREE.MathUtils.lerp(1.2, 2.5, this.moodBlend);
 
     // 4. Calm companion animations (gentle tail sway & breathing)
     this.dogTail.rotation.y = Math.sin(elapsed * 2.2) * 0.14;

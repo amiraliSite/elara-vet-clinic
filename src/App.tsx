@@ -20,10 +20,10 @@ export default function App() {
   }, [lang, t.dir]);
 
   return (
-    <div dir={t.dir} className="min-h-screen bg-[#15100D] text-[#221914] flex flex-col">
-      <Header t={t} lang={lang} />
+    <div dir={t.dir} className="min-h-screen bg-[#FFFBF5] text-[#172A28] flex flex-col">
+      <Header t={t} lang={lang} onChangeLang={setLang} />
       <main className="flex-1">
-        <Hero3DSlider t={t} lang={lang} onChangeLang={setLang} />
+        <Hero3DSlider t={t} lang={lang} />
         <PhilosophySection t={t} lang={lang} />
         <VetCanvas3D t={t} lang={lang} />
         <SpecialtiesSection t={t} lang={lang} />

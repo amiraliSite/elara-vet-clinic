@@ -182,7 +182,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       title: 'مهرِ بی‌مرز و دقتِ پزشکی در پناهگاه آرامِ الارا',
       motto: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
       subtitle:
-        'تلفیق معماری برنز و سنگ طبیعی، تصویربرداری دقیق و بخش‌های کاملاً مجزای سگ و گربه برای تجربه‌ای صمیمی و بدون استرس.',
+        'تلفیق معماری روشن و آفتابی، سنگ تراورتن گرم، تصویربرداری دقیق و بخش‌های کاملاً مجزای سگ و گربه برای تجربه‌ای شاد و بدون استرس.',
       primaryCta: 'رزرو مشاوره تخصصی',
       secondaryCta: 'کاوش سه‌بعدی اتاق معاینه',
       autoPlayOn: 'پخش خودکار فعال',
@@ -282,7 +282,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     philosophy: {
       kicker: 'معماری درمانی بدون تنش',
       title: 'دامپزشکی تخصصی به دور از اضطراب محیط‌های درمانی',
-      body: 'تک‌تک جزئیات کلینیک تخصصی الارا — از دیوارهای سنگ تراورتن جاذب صدا و جزئیات برنز گرم تا بخش‌های کاملاً تفکیک‌شده سگ‌ها و گربه‌ها — برای کاهش هورمون استرس پیش از شروع معاینه طراحی شده‌اند.',
+      body: 'تک‌تک جزئیات کلینیک تخصصی الارا — از فضای پرنور و آفتابی با سنگ تراورتن جاذب صدا و چوب گرم تا بخش‌های کاملاً تفکیک‌شده سگ‌ها و گربه‌ها — برای ایجاد حس شادی، امنیت و آرامش پیش از شروع معاینه طراحی شده‌اند.',
       quote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
       imageCaption: 'لابی اصلی کلینیک · سنگ تراورتن آکوستیک و پذیرش مجزای سگ و گربه',
       metrics: [
@@ -481,7 +481,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       title: 'Calm clinical precision for every companion.',
       motto: '“Every quiet breath of our companions is a trust held in science and kindness.”',
       subtitle:
-        'Experience our warm bronze-and-limestone veterinary sanctuary in interactive 3D. Auto-advancing spatial gallery, board-certified diagnostics, and separated canine and feline wings.',
+        'Experience our bright sunlit veterinary sanctuary in interactive 3D. Auto-advancing spatial gallery, board-certified diagnostics, and joyful separated canine and feline wings.',
       primaryCta: 'Schedule Consultation',
       secondaryCta: 'Explore 3D Exam Suite',
       autoPlayOn: 'Auto-slide active',
@@ -581,7 +581,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     philosophy: {
       kicker: 'Architectural Healing Environment',
       title: 'Veterinary medicine without clinical anxiety.',
-      body: 'Every material inside Elara Vet Sanctuary—from acoustic travertine walls and warm bronze details to species-isolated examination wings—is engineered to lower cortisol levels before a stethoscope ever touches your companion.',
+      body: 'Every material inside Elara Vet Sanctuary—from sunlit travertine walls and natural botanical light to species-isolated examination wings—is engineered to bring calm joy and lower cortisol before a stethoscope ever touches your companion.',
       quote: '“A tranquil heart is already half the healing.”',
       imageCaption: 'Main sunlit atrium · Acoustic travertine & separated canine/feline reception wings',
       metrics: [

@@ -77,16 +77,16 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
   return (
     <section
       id="explorer-3d"
-      className="py-16 md:py-20 bg-[#1B1410] text-[#F5EFE8] border-b border-[#D19A6B]/15"
+      className="py-16 md:py-20 bg-[#E8F6F2] text-[#162A28] border-b border-[#0D9488]/15"
     >
-      <div className="max-w-[1280px] mx-auto px-6">
+      <div className="max-w-[1260px] mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium text-[#E0AA7A] tracking-wide mb-2">
+            <p className="text-xs font-semibold text-[#0F766E] tracking-wide mb-2">
               {t.explorer.kicker}
             </p>
             <h2
-              className={`font-medium text-[#F5EFE8] text-balance ${
+              className={`font-medium text-[#162A28] text-balance ${
                 lang === 'fa'
                   ? 'font-persian-display leading-[1.35]'
                   : 'font-display leading-[1.15] tracking-tight'
@@ -100,15 +100,17 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
             >
               {t.explorer.title}
             </h2>
-            <p className="mt-2 text-sm md:text-[15px] leading-relaxed text-[#D0C1B3]">
+            <p className="mt-2 text-sm md:text-[15px] leading-relaxed text-[#455B58]">
               {t.explorer.subtitle}
             </p>
           </div>
-          <p className="text-xs text-[#C2AE9C] shrink-0">{t.explorer.dragHint}</p>
+          <p className="text-xs font-medium text-[#0F766E] bg-white/80 px-3 py-1.5 rounded-xl border border-[#0D9488]/20 shrink-0">
+            {t.explorer.dragHint}
+          </p>
         </div>
 
         {/* Interactive 3D Suite Viewport */}
-        <div className="relative w-full h-[560px] md:h-[640px] rounded-2xl overflow-hidden bg-[#1B1410] border border-[#D19A6B]/25 shadow-[0_24px_60px_rgba(0,0,0,0.5)] select-none">
+        <div className="relative w-full h-[560px] md:h-[640px] rounded-3xl overflow-hidden bg-[#EAF6F2] border-2 border-[#BCE3DA] shadow-[0_24px_60px_rgba(13,148,136,0.16)] select-none">
           {!webglFailed ? (
             <div
               ref={mountRef}
@@ -122,42 +124,42 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
                 src={CLINIC_IMAGES.hero}
                 alt={t.explorer.fallbackTitle}
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover opacity-80"
+                className="w-full h-full object-cover"
               />
             </div>
           )}
 
-          {/* Collapsible Bottom Control Dock */}
+          {/* Collapsible Bright 3D Bottom Control Dock */}
           <div className="absolute inset-x-0 bottom-4 z-20 flex flex-col items-center px-3 pointer-events-none">
             <button
               type="button"
               onClick={() => setDockOpen((prev) => !prev)}
-              className="pointer-events-auto mb-1.5 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-t-xl bg-[#18120E]/95 border border-b-0 border-[#D19A6B]/25 text-xs font-medium text-[#E5D6C7] hover:text-white transition-colors cursor-pointer whitespace-nowrap"
+              className="pointer-events-auto mb-1.5 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-t-xl bg-white/95 border border-b-0 border-[#0D9488]/25 text-xs font-semibold text-[#0F766E] hover:text-[#EA580C] transition-colors cursor-pointer whitespace-nowrap shadow-sm"
             >
               {dockOpen ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronUp className="w-3.5 h-3.5" />}
               <span>{dockOpen ? t.dock.hideControls : t.dock.showControls}</span>
             </button>
 
             {dockOpen && (
-              <div className="pointer-events-auto w-full max-w-[920px] rounded-2xl bg-[#18120E]/96 border border-[#D19A6B]/25 px-4 py-3 text-[#F5EFE8] shadow-2xl">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-white/10">
+              <div className="pointer-events-auto w-full max-w-[940px] rounded-2xl bg-white/96 border border-[#0D9488]/20 border-b-[4px] border-b-[#CCE6E1] px-4 py-3 text-[#162A28] shadow-[0_18px_42px_rgba(13,148,136,0.18)]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2.5 mb-2.5 border-b border-[#0D9488]/12">
                   {hotspotContent ? (
                     <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
-                      <span className="text-xs font-semibold text-[#E0AA7A] whitespace-nowrap">
+                      <span className="text-xs font-bold text-[#EA580C] whitespace-nowrap">
                         {hotspotContent.title}
                       </span>
-                      <span className="text-xs text-[#D8C8B9] leading-snug">
+                      <span className="text-xs text-[#455B58] leading-snug">
                         {hotspotContent.detail}
                       </span>
                     </div>
                   ) : (
-                    <span className="text-xs text-[#BFAE9E]">{t.dock.inspectHint}</span>
+                    <span className="text-xs text-[#546B68]">{t.dock.inspectHint}</span>
                   )}
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-medium text-[#B9A491] me-1">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#0F766E] me-1">
                       <Eye className="w-3.5 h-3.5" />
                       {t.dock.viewsLabel}
                     </span>
@@ -168,10 +170,10 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
                           key={preset}
                           type="button"
                           onClick={() => handlePreset(preset)}
-                          className={`px-2.5 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                          className={`px-3 py-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                             active
-                              ? 'bg-[#B87B4B] text-[#18110C] font-semibold'
-                              : 'bg-white/5 text-[#D2C2B4] hover:bg-white/10 hover:text-white'
+                              ? 'btn-joy-3d text-white'
+                              : 'bg-[#F0F9F7] text-[#35524F] hover:bg-[#E1F3EF] border border-[#0D9488]/15'
                           }`}
                         >
                           {t.dock.views[preset]}
@@ -180,8 +182,8 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
                     })}
                   </div>
 
-                  <label className="flex items-center gap-2 text-xs text-[#D2C2B4] whitespace-nowrap">
-                    <Layers className="w-3.5 h-3.5 text-[#E0AA7A]" />
+                  <label className="flex items-center gap-2 text-xs font-medium text-[#35524F] whitespace-nowrap">
+                    <Layers className="w-3.5 h-3.5 text-[#0D9488]" />
                     <span>{t.dock.explodeLabel}</span>
                     <input
                       type="range"
@@ -190,23 +192,23 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
                       step={0.01}
                       value={explode}
                       onChange={(e) => handleExplode(parseFloat(e.target.value))}
-                      className="w-24 accent-[#D19A6B] cursor-pointer"
+                      className="w-24 accent-[#F97316] cursor-pointer"
                     />
-                    <span className="tabular-nums text-[11px] text-[#B9A491] w-9 text-end">
+                    <span className="tabular-nums text-[11px] font-semibold text-[#0F766E] w-9 text-end">
                       {lang === 'fa'
                         ? `${Math.round(explode * 100).toLocaleString('fa-IR')}٪`
                         : `${Math.round(explode * 100)}%`}
                     </span>
                   </label>
 
-                  <div className="flex items-center gap-1 p-0.5 rounded-xl bg-white/5 border border-white/10">
+                  <div className="flex items-center gap-1 p-1 rounded-xl bg-[#EFF7F5] border border-[#0D9488]/15">
                     <button
                       type="button"
                       onClick={() => handleMood('daylight')}
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
                         mood === 'daylight'
-                          ? 'bg-[#F5EFE8] text-[#18110C]'
-                          : 'text-[#D2C2B4] hover:text-white'
+                          ? 'bg-white text-[#EA580C] shadow-xs border border-[#FDBA74]/60'
+                          : 'text-[#4D6260] hover:text-[#162A28]'
                       }`}
                     >
                       <Sun className="w-3.5 h-3.5" />
@@ -215,10 +217,10 @@ export const VetCanvas3D: React.FC<VetCanvas3DProps> = ({ t, lang }) => {
                     <button
                       type="button"
                       onClick={() => handleMood('evening')}
-                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
                         mood === 'evening'
-                          ? 'bg-[#B87B4B] text-[#18110C] font-semibold'
-                          : 'text-[#D2C2B4] hover:text-white'
+                          ? 'bg-[#1E3A5F] text-white shadow-xs'
+                          : 'text-[#4D6260] hover:text-[#162A28]'
                       }`}
                     >
                       <Moon className="w-3.5 h-3.5" />

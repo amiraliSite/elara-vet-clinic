@@ -113,8 +113,8 @@ export class VetHeroSlider3D {
     this.container.appendChild(this.renderer.domElement);
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color('#15100D');
-    this.scene.fog = new THREE.FogExp2('#15100D', 0.056);
+    this.scene.background = new THREE.Color('#F9F2E7');
+    this.scene.fog = new THREE.FogExp2('#F9F2E7', 0.036);
 
     const pmrem = new THREE.PMREMGenerator(this.renderer);
     this.envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
@@ -138,10 +138,10 @@ export class VetHeroSlider3D {
   }
 
   private setupLighting(): void {
-    const hemi = new THREE.HemisphereLight('#F3DFCA', '#33241A', 0.92);
+    const hemi = new THREE.HemisphereLight('#FFFFFF', '#EAD8C3', 1.15);
     this.scene.add(hemi);
 
-    const key = new THREE.DirectionalLight('#FFEAD4', 2.05);
+    const key = new THREE.DirectionalLight('#FFF7E8', 2.15);
     key.position.set(4.5, 6.5, 6.0);
     key.castShadow = !this.isSoftwareGl;
     key.shadow.mapSize.set(1024, 1024);
@@ -149,20 +149,20 @@ export class VetHeroSlider3D {
     key.shadow.normalBias = 0.02;
     this.scene.add(key);
 
-    const rim = new THREE.DirectionalLight('#D49B6A', 1.15);
+    const rim = new THREE.DirectionalLight('#5EEAD4', 0.72);
     rim.position.set(-5.0, 3.0, -4.5);
     this.scene.add(rim);
   }
 
   private buildStage(): void {
-    // Sleek dark mineral architectural gallery floor
+    // Bright sunlit limestone architectural gallery floor
     const floor = new THREE.Mesh(
       this.trackGeo(new THREE.CircleGeometry(24, 64)),
       this.trackMat(
         new THREE.MeshStandardMaterial({
-          color: '#19130F',
-          roughness: 0.44,
-          metalness: 0.28,
+          color: '#F2E7D7',
+          roughness: 0.48,
+          metalness: 0.08,
         }),
       ),
     );
@@ -171,15 +171,15 @@ export class VetHeroSlider3D {
     floor.receiveShadow = true;
     this.scene.add(floor);
 
-    // Sculpted circular burnished-bronze gallery orbit rail on the floor
+    // Sculpted circular sunlit honey-gold gallery orbit rail on the floor
     this.brassHalo = new THREE.Mesh(
-      this.trackGeo(new THREE.TorusGeometry(4.6, 0.02, 14, 120)),
+      this.trackGeo(new THREE.TorusGeometry(4.6, 0.024, 14, 120)),
       this.trackMat(
         new THREE.MeshPhysicalMaterial({
-          color: '#C98E5B',
-          metalness: 0.93,
-          roughness: 0.21,
-          anisotropy: 0.75,
+          color: '#E59A46',
+          metalness: 0.85,
+          roughness: 0.2,
+          anisotropy: 0.7,
         }),
       ),
     );
@@ -194,18 +194,18 @@ export class VetHeroSlider3D {
 
     const brassMat = this.trackMat(
       new THREE.MeshPhysicalMaterial({
-        color: '#C98E5B',
-        metalness: 0.93,
-        roughness: 0.2,
-        anisotropy: 0.75,
+        color: '#E6A352',
+        metalness: 0.86,
+        roughness: 0.19,
+        anisotropy: 0.7,
       }),
     );
 
     const backingMat = this.trackMat(
       new THREE.MeshStandardMaterial({
-        color: '#221914',
-        roughness: 0.52,
-        metalness: 0.32,
+        color: '#FFF9F0',
+        roughness: 0.42,
+        metalness: 0.08,
       }),
     );
 
@@ -312,9 +312,9 @@ export class VetHeroSlider3D {
     const geo = this.trackGeo(new THREE.SphereGeometry(0.016, 8, 8));
     const mat = this.trackMat(
       new THREE.MeshBasicMaterial({
-        color: '#E6B283',
+        color: '#F59E0B',
         transparent: true,
-        opacity: 0.45,
+        opacity: 0.38,
       }),
     );
     this.motesMesh = new THREE.InstancedMesh(geo, mat, count);
