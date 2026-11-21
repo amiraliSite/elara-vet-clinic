@@ -22,7 +22,6 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
   const totalSlides = slides.length;
   const current = slides[activeSlide] ?? slides[0];
 
-  // Mount Three.js 3D curved photo gallery
   useEffect(() => {
     const container = mountRef.current;
     if (!container) return;
@@ -43,7 +42,6 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
     };
   }, []);
 
-  // Sync RTL/LTR spatial bias and active slide with Three.js stage
   useEffect(() => {
     slider3DRef.current?.setDirection(t.dir);
   }, [t.dir]);
@@ -52,7 +50,6 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
     slider3DRef.current?.setActiveSlide(activeSlide);
   }, [activeSlide]);
 
-  // Automatic 3D photo slide timer (every 4.2s)
   useEffect(() => {
     if (!autoPlay) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -75,7 +72,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
   return (
     <section
       id="sanctuary-slider"
-      className="relative w-full min-h-[700px] lg:h-[calc(100vh-4rem)] lg:max-h-[900px] bg-[#0E1613] overflow-hidden select-none"
+      className="relative w-full min-h-[700px] lg:h-[calc(100vh-1rem)] lg:max-h-[910px] bg-[#15100D] overflow-hidden select-none lg:-mt-16 lg:pt-16"
     >
       {/* Dedicated Three.js 3D Photo Carousel Viewport */}
       {!webglFailed ? (
@@ -93,68 +90,66 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover transition-opacity duration-700"
           />
-          <div className="absolute inset-0 bg-[#0E1613]/60" />
+          <div className="absolute inset-0 bg-[#15100D]/60" />
         </div>
       )}
 
-      {/* Measured contrast scrims so editorial typography reads crisply on any slide */}
+      {/* Warm Espresso & Bronze Ambient Readability Scrims */}
       <div
         className={`pointer-events-none absolute inset-0 ${
           t.dir === 'rtl'
-            ? 'bg-gradient-to-l from-[#0B120F]/92 via-[#0B120F]/55 to-transparent'
-            : 'bg-gradient-to-r from-[#0B120F]/92 via-[#0B120F]/55 to-transparent'
+            ? 'bg-gradient-to-l from-[#120D0A]/94 via-[#120D0A]/58 to-transparent'
+            : 'bg-gradient-to-r from-[#120D0A]/94 via-[#120D0A]/58 to-transparent'
         }`}
       />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0B120F] via-[#0B120F]/65 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#120D0A] via-[#120D0A]/65 to-transparent" />
 
       {/* Main Hero Overlay Grid */}
-      <div className="relative z-10 max-w-[1280px] mx-auto px-6 h-full min-h-[700px] flex flex-col justify-between py-7 md:py-9 pointer-events-none">
-        {/* Top Row: Editorial Content + Trilingual Switcher */}
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 h-full min-h-[680px] flex flex-col justify-between py-7 md:py-10 pointer-events-none">
         <div className="flex flex-col-reverse lg:flex-row lg:items-start justify-between gap-6">
           <div className="max-w-xl pointer-events-auto animate-calm-enter">
-            <p className="text-xs font-medium text-[#D4AF63] tracking-wide mb-2">
+            <p className="text-xs font-medium text-[#E0AA7A] tracking-wide mb-2">
               {t.hero.kicker}
             </p>
 
             <h1
-              className={`font-medium text-[#F6F5F0] text-balance ${
+              className={`font-medium text-[#F5EFE8] text-balance ${
                 lang === 'fa'
-                  ? 'font-nastaliq leading-[2.05] py-1'
+                  ? 'font-nastaliq leading-[2.08] py-1'
                   : 'font-display leading-[1.12] tracking-tight'
               }`}
               style={{
                 fontSize:
                   lang === 'fa'
-                    ? 'clamp(1.75rem, 3.1vw, 2.75rem)'
+                    ? 'clamp(1.75rem, 3.05vw, 2.7rem)'
                     : 'clamp(2.1rem, 3.8vw, 3.4rem)',
               }}
             >
               {t.hero.title}
             </h1>
 
-            {/* Persian Nastaliq Calligraphic Motto */}
             <p
               dir="rtl"
               lang="fa"
-              className="mt-2 font-nastaliq text-base md:text-lg text-[#E8C988] leading-[2.1] py-0.5"
+              className="mt-2 font-nastaliq text-base md:text-lg text-[#E6B283] leading-[2.12] py-0.5"
             >
               {t.hero.nastaliqVerse}
             </p>
 
-            <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-[#D8DFDB] max-w-lg">
+            <p className="mt-3 text-sm md:text-[15px] leading-relaxed text-[#E3D6C9] max-w-lg">
               {t.hero.subtitle}
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="#booking"
-                className="px-5 py-2.5 text-sm font-medium rounded-lg bg-[#2D5A4C] hover:bg-[#386E5D] text-[#F6F5F0] shadow-[0_6px_18px_rgba(45,90,76,0.4)] hover:-translate-y-[1px] transition-all duration-200 whitespace-nowrap shrink-0"
+                className="btn-bronze-3d px-5 py-2.5 text-sm font-semibold rounded-xl text-[#18110C] transition-all duration-200 whitespace-nowrap shrink-0"
               >
                 {t.hero.primaryCta}
               </a>
               <a
                 href="#explorer-3d"
-                className="px-5 py-2.5 text-sm font-medium rounded-lg bg-[#16201C]/95 hover:bg-[#1F2D27] border border-[#D4AF63]/35 text-[#F6F5F0] hover:-translate-y-[1px] transition-all duration-200 whitespace-nowrap shrink-0"
+                className="px-5 py-2.5 text-sm font-medium rounded-xl bg-[#241A15]/95 hover:bg-[#31231C] border border-[#D19A6B]/35 text-[#F5EFE8] hover:-translate-y-[1px] transition-all duration-200 whitespace-nowrap shrink-0"
               >
                 {t.hero.secondaryCta}
               </a>
@@ -166,7 +161,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
             <div
               role="group"
               aria-label="Language Switcher"
-              className="inline-flex items-center gap-1 p-1 rounded-lg bg-[#101815]/95 border border-[#D4AF63]/25 shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+              className="inline-flex items-center gap-1 p-1 rounded-xl bg-[#1A130F]/95 border border-[#D19A6B]/30 shadow-[0_10px_28px_rgba(0,0,0,0.4)]"
             >
               {(
                 [
@@ -181,10 +176,10 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
                     key={item.code}
                     type="button"
                     onClick={() => onChangeLang(item.code)}
-                    className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                    className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                       active
-                        ? 'bg-[#2D5A4C] text-[#F6F5F0]'
-                        : 'text-[#C2CCC7] hover:text-white'
+                        ? 'bg-[#B87B4B] text-[#18110C] font-semibold shadow-sm'
+                        : 'text-[#D0C1B3] hover:text-white'
                     }`}
                   >
                     {item.label}
@@ -192,16 +187,16 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
                 );
               })}
             </div>
-            <p className="text-[11px] text-[#B7C3BD] hidden sm:block">
+            <p className="text-[11px] text-[#C8B7A7] hidden sm:block">
               {t.hero.slideHint}
             </p>
           </div>
         </div>
 
         {/* Bottom 3D Slider Caption & Controls Bar */}
-        <div className="pointer-events-auto mt-8 rounded-xl bg-[#101815]/95 border border-white/15 px-5 py-4 shadow-[0_14px_38px_rgba(0,0,0,0.45)] flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="pointer-events-auto mt-8 rounded-2xl bg-[#1A130F]/95 border border-[#D19A6B]/25 px-5 py-4 shadow-[0_18px_42px_rgba(0,0,0,0.48)] flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="min-w-0">
-            <div className="flex items-center gap-2.5 text-xs text-[#D4AF63] font-medium mb-1">
+            <div className="flex items-center gap-2.5 text-xs text-[#E0AA7A] font-medium mb-1">
               <span className="tabular-nums">
                 {String(activeSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
               </span>
@@ -209,19 +204,18 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
               <span>{current.tag}</span>
             </div>
             <h2
-              className={`text-base md:text-lg font-medium text-[#F6F5F0] truncate ${
+              className={`text-base md:text-lg font-medium text-[#F5EFE8] truncate ${
                 lang === 'fa' ? 'font-sans' : 'font-display'
               }`}
             >
               {current.title}
             </h2>
-            <p className="text-xs md:text-sm text-[#B7C3BD] mt-0.5 line-clamp-1">
+            <p className="text-xs md:text-sm text-[#C8B7A7] mt-0.5 line-clamp-1">
               {current.subtitle}
             </p>
           </div>
 
           <div className="flex items-center gap-2.5 shrink-0">
-            {/* Slide Selector Dots */}
             <div className="hidden sm:flex items-center gap-1.5 me-2">
               {slides.map((s, idx) => (
                 <button
@@ -231,7 +225,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
                   aria-label={s.title}
                   className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                     idx === activeSlide
-                      ? 'w-7 bg-[#D4AF63]'
+                      ? 'w-7 bg-[#D19A6B]'
                       : 'w-2 bg-white/25 hover:bg-white/50'
                   }`}
                 />
@@ -243,7 +237,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
               onClick={() => setAutoPlay((p) => !p)}
               aria-label={autoPlay ? t.hero.autoPlayOff : t.hero.autoPlayOn}
               title={autoPlay ? t.hero.autoPlayOff : t.hero.autoPlayOn}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/12 border border-white/10 text-[#E5E2D7] transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/12 border border-[#D19A6B]/20 text-[#F5EFE8] transition-colors cursor-pointer"
             >
               {autoPlay ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             </button>
@@ -252,7 +246,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
               type="button"
               onClick={t.dir === 'rtl' ? goNext : goPrev}
               aria-label={t.hero.prevSlide}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/12 border border-white/10 text-[#E5E2D7] transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/12 border border-[#D19A6B]/20 text-[#F5EFE8] transition-colors cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -261,7 +255,7 @@ export const Hero3DSlider: React.FC<Hero3DSliderProps> = ({ t, lang, onChangeLan
               type="button"
               onClick={t.dir === 'rtl' ? goPrev : goNext}
               aria-label={t.hero.nextSlide}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/12 border border-white/10 text-[#E5E2D7] transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/12 border border-[#D19A6B]/20 text-[#F5EFE8] transition-colors cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

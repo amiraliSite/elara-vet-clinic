@@ -7,6 +7,7 @@ import { SpecialtiesSection } from './components/SpecialtiesSection';
 import { GallerySection } from './components/GallerySection';
 import { BookingSection } from './components/BookingSection';
 import { Footer } from './components/Footer';
+import { FeedbackModal } from './components/FeedbackModal';
 import { TRANSLATIONS, type Language } from './i18n/translations';
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
   }, [lang, t.dir]);
 
   return (
-    <div dir={t.dir} className="min-h-screen bg-[#F6F5F0] text-[#17201C] flex flex-col">
+    <div dir={t.dir} className="min-h-screen bg-[#15100D] text-[#221914] flex flex-col">
       <Header t={t} lang={lang} />
       <main className="flex-1">
         <Hero3DSlider t={t} lang={lang} onChangeLang={setLang} />
@@ -30,6 +31,7 @@ export default function App() {
         <BookingSection t={t} lang={lang} />
       </main>
       <Footer t={t} lang={lang} onChangeLang={setLang} />
+      <FeedbackModal t={t} lang={lang} />
     </div>
   );
 }

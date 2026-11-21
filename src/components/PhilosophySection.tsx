@@ -11,8 +11,17 @@ interface PhilosophySectionProps {
 
 export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang }) => {
   return (
-    <section id="philosophy" className="py-20 md:py-24 bg-[#F6F5F0] border-b border-[#17201C]/10">
-      <div className="max-w-[1280px] mx-auto px-6">
+    <section
+      id="philosophy"
+      className="relative py-20 md:py-24 bg-[#F5EFE8] border-b border-[#8C5630]/15 overflow-hidden"
+    >
+      {/* Subtle organic warm ambient glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -end-24 w-[480px] h-[480px] rounded-full bg-[#D19A6B]/12 blur-3xl"
+      />
+
+      <div className="relative max-w-[1280px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -21,13 +30,13 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex flex-col justify-center"
           >
-            <p className="text-xs font-medium text-[#2D5A4C] tracking-wide mb-2">
+            <p className="text-xs font-medium text-[#9A6035] tracking-wide mb-2">
               {t.philosophy.kicker}
             </p>
             <h2
-              className={`font-medium text-[#17201C] text-balance ${
+              className={`font-medium text-[#221914] text-balance ${
                 lang === 'fa'
-                  ? 'font-nastaliq leading-[2.05] py-1'
+                  ? 'font-nastaliq leading-[2.08] py-1'
                   : 'font-display leading-[1.15] tracking-tight'
               }`}
               style={{
@@ -39,13 +48,13 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
             >
               {t.philosophy.title}
             </h2>
-            <p className="mt-4 text-[15px] md:text-base leading-relaxed text-[#47544D]">
+            <p className="mt-4 text-[15px] md:text-base leading-relaxed text-[#5C4B40]">
               {t.philosophy.body}
             </p>
             <p
               dir="rtl"
               lang="fa"
-              className="mt-5 pt-4 border-t border-[#17201C]/10 font-nastaliq text-lg text-[#2D5A4C] leading-[2.1]"
+              className="mt-5 pt-4 border-t border-[#8C5630]/15 font-nastaliq text-lg text-[#9A6035] leading-[2.12]"
             >
               {t.philosophy.calligraphyQuote}
             </p>
@@ -60,7 +69,7 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
           >
             <TiltCard3D
               intensity={4.5}
-              className="flex-1 min-h-[280px] lg:min-h-[390px] rounded-xl overflow-hidden bg-[#E5E2D7] border border-[#17201C]/12 shadow-[0_20px_50px_rgba(23,32,28,0.14)]"
+              className="flex-1 min-h-[280px] lg:min-h-[390px] rounded-2xl overflow-hidden bg-[#E5D9CC] border border-[#8C5630]/20 shadow-[0_22px_54px_rgba(34,25,20,0.16)]"
             >
               <img
                 src={CLINIC_IMAGES.hero}
@@ -68,8 +77,8 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#101815]/85 via-[#101815]/35 to-transparent" />
-              <p className="absolute inset-x-0 bottom-0 px-5 py-3.5 text-xs text-[#F6F5F0]/95">
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#16100C]/88 via-[#16100C]/35 to-transparent" />
+              <p className="absolute inset-x-0 bottom-0 px-5 py-3.5 text-xs text-[#F5EFE8]/95">
                 {t.philosophy.imageCaption}
               </p>
             </TiltCard3D>
@@ -77,7 +86,7 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
         </div>
 
         {/* Full-Width 4-Column Quantitative Proof Strip */}
-        <div className="mt-12 pt-10 border-t border-[#17201C]/10 grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="mt-12 pt-10 border-t border-[#8C5630]/15 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {t.philosophy.metrics.map((metric, idx) => (
             <motion.div
               key={idx}
@@ -87,10 +96,10 @@ export const PhilosophySection: React.FC<PhilosophySectionProps> = ({ t, lang })
               transition={{ duration: 0.55, delay: idx * 0.06, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col"
             >
-              <span className="font-display text-3xl md:text-4xl font-medium text-[#17201C] tabular-nums">
+              <span className="font-display text-3xl md:text-4xl font-medium text-[#221914] tabular-nums">
                 {metric.value}
               </span>
-              <span className="mt-1.5 text-sm text-[#47544D]">{metric.label}</span>
+              <span className="mt-1.5 text-sm text-[#5C4B40]">{metric.label}</span>
             </motion.div>
           ))}
         </div>

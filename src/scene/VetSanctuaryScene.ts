@@ -15,10 +15,10 @@ const _c1 = new THREE.Color();
 const _c2 = new THREE.Color();
 const _dummy = new THREE.Object3D();
 
-const DAY_BG = new THREE.Color('#16201C');
-const EVENING_BG = new THREE.Color('#0C1311');
-const DAY_KEY_COLOR = new THREE.Color('#FFF1DC');
-const EVENING_KEY_COLOR = new THREE.Color('#E8C38E');
+const DAY_BG = new THREE.Color('#1B1410');
+const EVENING_BG = new THREE.Color('#110C09');
+const DAY_KEY_COLOR = new THREE.Color('#FFEEDB');
+const EVENING_KEY_COLOR = new THREE.Color('#E3AB78');
 
 interface CameraTarget {
   pos: THREE.Vector3;
@@ -245,7 +245,7 @@ export class VetSanctuaryScene {
 
     this.scene = new THREE.Scene();
     this.scene.background = DAY_BG.clone();
-    this.scene.fog = new THREE.FogExp2('#16201C', 0.042);
+    this.scene.fog = new THREE.FogExp2('#1B1410', 0.042);
 
     // Mandatory studio environment map via RoomEnvironment
     const pmrem = new THREE.PMREMGenerator(this.renderer);
@@ -288,12 +288,12 @@ export class VetSanctuaryScene {
   }
 
   private setupLighting(): void {
-    // Cool sky / warm stone Hemisphere fill
-    this.hemiLight = new THREE.HemisphereLight('#DCE9E4', '#4A4338', 0.85);
+    // Warm cream / umber stone Hemisphere fill
+    this.hemiLight = new THREE.HemisphereLight('#F2E2D0', '#4A3628', 0.88);
     this.scene.add(this.hemiLight);
 
     // Warm key light with tight shadow frustum
-    this.keyLight = new THREE.DirectionalLight('#FFF1DC', 2.2);
+    this.keyLight = new THREE.DirectionalLight('#FFEEDB', 2.2);
     this.keyLight.position.set(5.5, 7.5, 4.5);
     this.keyLight.castShadow = !this.isSoftwareGl;
     this.keyLight.shadow.mapSize.set(1024, 1024);
@@ -308,13 +308,13 @@ export class VetSanctuaryScene {
     this.keyLight.shadow.normalBias = 0.02;
     this.scene.add(this.keyLight);
 
-    // Cool sage rim light from behind to sculpt silhouettes
-    const rimLight = new THREE.DirectionalLight('#8FC1B0', 0.95);
+    // Warm bronze-sage rim light from behind to sculpt silhouettes
+    const rimLight = new THREE.DirectionalLight('#D19A6B', 0.98);
     rimLight.position.set(-4.5, 4.0, -5.0);
     this.scene.add(rimLight);
 
     // Focused surgical lamp warm glow
-    this.lampSpotlight = new THREE.PointLight('#FFE9C2', 1.4, 7, 2);
+    this.lampSpotlight = new THREE.PointLight('#FFE7CA', 1.45, 7, 2);
     this.lampSpotlight.position.set(0, 2.25, 0);
     this.scene.add(this.lampSpotlight);
   }
@@ -346,18 +346,18 @@ export class VetSanctuaryScene {
 
     const brassMat = this.trackMat(
       new THREE.MeshPhysicalMaterial({
-        color: '#C5A059',
-        metalness: 0.92,
-        roughness: 0.22,
-        anisotropy: 0.7,
+        color: '#C98E5B',
+        metalness: 0.93,
+        roughness: 0.21,
+        anisotropy: 0.75,
       }),
     );
 
     const sagePlasterMat = this.trackMat(
       new THREE.MeshStandardMaterial({
-        color: '#2B3E36',
+        color: '#34271F',
         roughness: 0.85,
-        metalness: 0.05,
+        metalness: 0.06,
       }),
     );
 
@@ -366,9 +366,9 @@ export class VetSanctuaryScene {
       this.trackGeo(new THREE.CircleGeometry(28, 64)),
       this.trackMat(
         new THREE.MeshStandardMaterial({
-          color: '#17211D',
+          color: '#1C1511',
           roughness: 0.92,
-          metalness: 0.02,
+          metalness: 0.03,
         }),
       ),
     );

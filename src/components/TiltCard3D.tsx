@@ -62,8 +62,8 @@ export const TiltCard3D: React.FC<TiltCard3DProps> = ({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 rounded-[inherit] transition-opacity duration-300"
         style={{
-          opacity: sheenPos.opacity * 0.28,
-          background: `radial-gradient(circle 340px at ${sheenPos.x}% ${sheenPos.y}%, rgba(212, 175, 99, 0.35), transparent 70%)`,
+          opacity: sheenPos.opacity * 0.3,
+          background: `radial-gradient(circle 340px at ${sheenPos.x}% ${sheenPos.y}%, rgba(209, 154, 107, 0.38), transparent 70%)`,
         }}
       />
     </div>

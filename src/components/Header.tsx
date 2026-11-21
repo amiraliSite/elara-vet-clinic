@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Images, Box, Stethoscope, Sparkles, CalendarCheck } from 'lucide-react';
 import type { Language, TranslationBundle } from '../i18n/translations';
 
 interface HeaderProps {
@@ -8,80 +8,138 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ t, lang }) => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeId, setActiveId] = useState<string>('#sanctuary-slider');
 
   const navItems = [
-    { href: '#sanctuary-slider', label: t.nav.sanctuary },
-    { href: '#explorer-3d', label: t.nav.explorer3d },
-    { href: '#specialties', label: t.nav.specialties },
-    { href: '#gallery', label: t.nav.gallery },
+    { href: '#sanctuary-slider', label: t.nav.sanctuary, icon: Images },
+    { href: '#explorer-3d', label: t.nav.explorer3d, icon: Box },
+    { href: '#specialties', label: t.nav.specialties, icon: Stethoscope },
+    { href: '#gallery', label: t.nav.gallery, icon: Sparkles },
   ];
 
+  useEffect(() => {
+    const ids = ['#sanctuary-slider', '#explorer-3d', '#specialties', '#gallery', '#booking'];
+    const handleScroll = () => {
+      const y = window.scrollY + 180;
+      for (let i = ids.length - 1; i >= 0; i--) {
+        const el = document.querySelector(ids[i]) as HTMLElement | null;
+        if (el && el.offsetTop <= y) {
+          setActiveId(ids[i]);
+          break;
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 bg-[#0F1714]/96 border-b border-[#D4AF63]/20 shadow-[0_10px_30px_rgba(0,0,0,0.32)]">
-      <div className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between gap-8">
-        {/* Zone 1: Single-line Brand Wordmark */}
+    <>
+      {/* Slim Non-Sticky Brand Bar on Mobile */}
+      <div className="md:hidden bg-[#15100D] border-b border-[#D19A6B]/20 px-4 h-12 flex items-center justify-between">
         <a
           href="#sanctuary-slider"
-          className={`text-xl font-semibold text-[#F6F5F0] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF63] ${
-            lang === 'fa' ? 'font-nastaliq text-2xl py-1' : 'font-display tracking-tight'
+          className={`font-semibold text-[#F5EFE8] whitespace-nowrap shrink-0 ${
+            lang === 'fa' ? 'font-nastaliq text-xl py-0.5' : 'font-display text-lg'
           }`}
         >
           {t.brand}
         </a>
-
-        {/* Zone 2: Clean single-line 3D elevated nav links */}
-        <nav
-          aria-label="Primary"
-          className="hidden md:flex items-center gap-7 text-sm font-medium text-[#C8D3CD]"
+        <a
+          href="#booking"
+          className="btn-bronze-3d px-3.5 py-1.5 text-xs font-semibold text-[#1A120D] rounded-lg whitespace-nowrap shrink-0"
         >
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="relative py-1.5 hover:text-[#F6F5F0] transition-all duration-200 hover:-translate-y-[1px] whitespace-nowrap shrink-0 after:content-[''] after:absolute after:inset-x-0 after:bottom-0 after:h-[1.5px] after:bg-[#D4AF63] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Zone 3: Single Primary 3D Action + Mobile Menu Trigger */}
-        <div className="flex items-center gap-2 shrink-0">
-          <a
-            href="#booking"
-            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[#111916] bg-gradient-to-b from-[#E3C178] to-[#C29B4D] hover:from-[#ECD08D] hover:to-[#CEA758] rounded-lg shadow-[0_4px_14px_rgba(212,175,99,0.28),inset_0_1px_0_rgba(255,255,255,0.45)] hover:-translate-y-[1px] active:translate-y-0 transition-all duration-200 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF63]"
-          >
-            {t.nav.book}
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen((prev) => !prev)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileOpen}
-            className="md:hidden p-2 rounded-lg text-[#D8DFDB] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
+          {t.nav.book}
+        </a>
       </div>
 
-      {/* Mobile Navigation Drawer */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#111A16] px-6 py-4 space-y-2">
-          {navItems.map((item) => (
+      {/* Desktop 3D Sculpted Floating Navbar (3-Zone Top Bar Contract) */}
+      <header className="hidden md:block sticky top-3 z-40 px-6 pointer-events-none">
+        <div className="pointer-events-auto max-w-[1220px] mx-auto px-5 h-16 rounded-2xl bg-gradient-to-b from-[#251C17]/96 to-[#17110E]/96 border border-[#D19A6B]/30 nav-3d-shell flex items-center justify-between gap-8">
+          {/* Zone 1: Single-line Brand Wordmark */}
+          <a
+            href="#sanctuary-slider"
+            className={`font-semibold text-[#F5EFE8] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D19A6B] ${
+              lang === 'fa' ? 'font-nastaliq text-2xl py-1' : 'font-display text-xl tracking-tight'
+            }`}
+          >
+            {t.brand}
+          </a>
+
+          {/* Zone 2: Recessed 3D Tactile Nav Plinth */}
+          <nav
+            aria-label="Primary"
+            className="flex items-center gap-1.5 p-1 rounded-xl bg-[#110C09]/90 border border-[#D19A6B]/15 shadow-[inset_0_2px_6px_rgba(0,0,0,0.6)]"
+          >
+            {navItems.map((item) => {
+              const isActive = activeId === item.href;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setActiveId(item.href)}
+                  className={`px-3.5 py-1.5 text-sm font-medium rounded-lg transition-all duration-200 whitespace-nowrap shrink-0 ${
+                    isActive
+                      ? 'bg-gradient-to-b from-[#342720] to-[#241B16] text-[#F5EFE8] border border-[#D19A6B]/30 shadow-[0_4px_10px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,224,192,0.18)] -translate-y-[1px]'
+                      : 'text-[#C8B9AB] hover:text-[#F5EFE8] hover:bg-white/5 hover:-translate-y-[1px]'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Zone 3: Extruded 3D Bronze CTA */}
+          <div className="shrink-0">
+            <a
+              href="#booking"
+              className="btn-bronze-3d inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-[#18110C] rounded-xl transition-all duration-200 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D19A6B]"
+            >
+              {t.nav.book}
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Fixed Bottom Navigation Dock */}
+      <nav
+        aria-label="Mobile Navigation"
+        className="md:hidden fixed bottom-2.5 inset-x-2.5 z-50 h-14 rounded-2xl bg-gradient-to-b from-[#241B16]/98 to-[#140F0C]/98 border border-[#D19A6B]/30 nav-3d-shell px-1.5 grid grid-cols-5 items-center gap-1"
+      >
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeId === item.href;
+          return (
             <a
               key={item.href}
               href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="block py-2 text-sm font-medium text-[#D8DFDB] hover:text-[#D4AF63] transition-colors"
+              onClick={() => setActiveId(item.href)}
+              className={`h-11 rounded-xl flex flex-col items-center justify-center gap-0.5 text-[10px] font-medium transition-all px-1 ${
+                isActive
+                  ? 'bg-[#33261F] text-[#E6B283] border border-[#D19A6B]/30 shadow-[inset_0_1px_0_rgba(255,224,192,0.15)]'
+                  : 'text-[#BFAE9E] hover:text-[#F5EFE8]'
+              }`}
             >
-              {item.label}
+              <Icon className="w-4 h-4 shrink-0" />
+              <span className="truncate max-w-full">{item.label}</span>
             </a>
-          ))}
-        </div>
-      )}
-    </header>
+          );
+        })}
+
+        <a
+          href="#booking"
+          onClick={() => setActiveId('#booking')}
+          className={`h-11 rounded-xl flex flex-col items-center justify-center gap-0.5 text-[10px] font-semibold px-1 transition-all ${
+            activeId === '#booking'
+              ? 'btn-bronze-3d text-[#18110C]'
+              : 'bg-[#B87B4B]/20 text-[#E6B283] border border-[#D19A6B]/30'
+          }`}
+        >
+          <CalendarCheck className="w-4 h-4 shrink-0" />
+          <span className="truncate max-w-full">{t.nav.book}</span>
+        </a>
+      </nav>
+    </>
   );
 };

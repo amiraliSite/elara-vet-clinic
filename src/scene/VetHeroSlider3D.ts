@@ -113,8 +113,8 @@ export class VetHeroSlider3D {
     this.container.appendChild(this.renderer.domElement);
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color('#0E1613');
-    this.scene.fog = new THREE.FogExp2('#0E1613', 0.058);
+    this.scene.background = new THREE.Color('#15100D');
+    this.scene.fog = new THREE.FogExp2('#15100D', 0.056);
 
     const pmrem = new THREE.PMREMGenerator(this.renderer);
     this.envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
@@ -138,10 +138,10 @@ export class VetHeroSlider3D {
   }
 
   private setupLighting(): void {
-    const hemi = new THREE.HemisphereLight('#DCE9E4', '#2F2A22', 0.9);
+    const hemi = new THREE.HemisphereLight('#F3DFCA', '#33241A', 0.92);
     this.scene.add(hemi);
 
-    const key = new THREE.DirectionalLight('#FFF1DC', 2.0);
+    const key = new THREE.DirectionalLight('#FFEAD4', 2.05);
     key.position.set(4.5, 6.5, 6.0);
     key.castShadow = !this.isSoftwareGl;
     key.shadow.mapSize.set(1024, 1024);
@@ -149,7 +149,7 @@ export class VetHeroSlider3D {
     key.shadow.normalBias = 0.02;
     this.scene.add(key);
 
-    const rim = new THREE.DirectionalLight('#7EB9A4', 1.1);
+    const rim = new THREE.DirectionalLight('#D49B6A', 1.15);
     rim.position.set(-5.0, 3.0, -4.5);
     this.scene.add(rim);
   }
@@ -160,9 +160,9 @@ export class VetHeroSlider3D {
       this.trackGeo(new THREE.CircleGeometry(24, 64)),
       this.trackMat(
         new THREE.MeshStandardMaterial({
-          color: '#111A16',
-          roughness: 0.42,
-          metalness: 0.25,
+          color: '#19130F',
+          roughness: 0.44,
+          metalness: 0.28,
         }),
       ),
     );
@@ -171,14 +171,15 @@ export class VetHeroSlider3D {
     floor.receiveShadow = true;
     this.scene.add(floor);
 
-    // Sculpted circular brushed-brass gallery orbit rail on the floor
+    // Sculpted circular burnished-bronze gallery orbit rail on the floor
     this.brassHalo = new THREE.Mesh(
-      this.trackGeo(new THREE.TorusGeometry(4.6, 0.018, 14, 120)),
+      this.trackGeo(new THREE.TorusGeometry(4.6, 0.02, 14, 120)),
       this.trackMat(
         new THREE.MeshPhysicalMaterial({
-          color: '#C9A45C',
-          metalness: 0.92,
-          roughness: 0.22,
+          color: '#C98E5B',
+          metalness: 0.93,
+          roughness: 0.21,
+          anisotropy: 0.75,
         }),
       ),
     );
@@ -193,18 +194,18 @@ export class VetHeroSlider3D {
 
     const brassMat = this.trackMat(
       new THREE.MeshPhysicalMaterial({
-        color: '#C5A059',
-        metalness: 0.92,
+        color: '#C98E5B',
+        metalness: 0.93,
         roughness: 0.2,
-        anisotropy: 0.7,
+        anisotropy: 0.75,
       }),
     );
 
     const backingMat = this.trackMat(
       new THREE.MeshStandardMaterial({
-        color: '#19231E',
-        roughness: 0.5,
-        metalness: 0.35,
+        color: '#221914',
+        roughness: 0.52,
+        metalness: 0.32,
       }),
     );
 
@@ -311,9 +312,9 @@ export class VetHeroSlider3D {
     const geo = this.trackGeo(new THREE.SphereGeometry(0.016, 8, 8));
     const mat = this.trackMat(
       new THREE.MeshBasicMaterial({
-        color: '#E8C988',
+        color: '#E6B283',
         transparent: true,
-        opacity: 0.42,
+        opacity: 0.45,
       }),
     );
     this.motesMesh = new THREE.InstancedMesh(geo, mat, count);

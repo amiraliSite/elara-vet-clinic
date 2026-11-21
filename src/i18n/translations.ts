@@ -138,6 +138,20 @@ export interface TranslationBundle {
       newRequestBtn: string;
     };
   };
+  feedback: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+    ratingLabels: string[];
+    commentLabel: string;
+    commentPlaceholder: string;
+    submitBtn: string;
+    laterBtn: string;
+    closeAria: string;
+    selectStarError: string;
+    thanksTitle: string;
+    thanksBody: string;
+  };
   footer: {
     tagline: string;
     hoursTitle: string;
@@ -157,17 +171,17 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     brand: 'کلینیک الارا',
     nav: {
       sanctuary: 'گالری سه‌بعدی',
-      explorer3d: 'نمای سه‌بعدی اتاق',
+      explorer3d: 'اتاق معاینه',
       specialties: 'تخصص‌ها',
-      gallery: 'فضاهای درمان',
+      gallery: 'فضاها',
       book: 'رزرو نوبت',
     },
     hero: {
-      kicker: 'کلینیک تخصصی حیوانات خانگی · نمایشگاه سه‌بعدی الارا',
+      kicker: 'کلینیک تخصصی حیوانات خانگی · تهران و مونیخ',
       title: 'مهرِ بی‌مرز و دقتِ پزشکی در پناهگاه آرامِ الارا',
       nastaliqVerse: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
       subtitle:
-        'تلفیق معماری سه‌بعدی آرامش‌بخش، تصویربرداری دقیق و بخش‌های کاملاً مجزای سگ و گربه برای تجربه‌ای بی‌استرس و در تراز کلینیک‌های مدرن اروپا.',
+        'تلفیق معماری برنز و سنگ طبیعی، تصویربرداری دقیق و بخش‌های کاملاً مجزای سگ و گربه برای تجربه‌ای صمیمی و بدون استرس.',
       primaryCta: 'رزرو مشاوره تخصصی',
       secondaryCta: 'کاوش سه‌بعدی اتاق معاینه',
       autoPlayOn: 'پخش خودکار فعال',
@@ -259,7 +273,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         },
         lamp: {
           title: 'چراغ جراحی بدون سایه با نور ملایم',
-          detail: 'طیف نوری سرد ۴۲۰۰ کلوین طراحی‌شده برای جلوگیری از خستگی و خیرگی چشم حیوانات.',
+          detail: 'طیف نوری گرم‌ملایم طراحی‌شده برای جلوگیری از خستگی و خیرگی چشم حیوانات.',
         },
       },
       inspectHint: 'برای مشاهده جزئیات بالینی، روی هر بخش در صحنه سه‌بعدی کلیک کنید.',
@@ -267,8 +281,8 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     philosophy: {
       kicker: 'معماری درمانی بدون تنش',
       title: 'دامپزشکی تخصصی به دور از اضطراب محیط‌های درمانی',
-      body: 'تک‌تک جزئیات کلینیک تخصصی الارا — از دیوارهای سنگ تراورتن جاذب صدا و حیاط گیاهی نورگیر تا بخش‌های کاملاً تفکیک‌شده سگ‌ها و گربه‌ها — برای کاهش هورمون استرس پیش از شروع معاینه طراحی شده‌اند.',
-      calligraphyQuote: 'آرامشِ جانِ پناهجو، نیمی از درمان است',
+      body: 'تک‌تک جزئیات کلینیک تخصصی الارا — از دیوارهای سنگ تراورتن جاذب صدا و جزییات برنز گرم تا بخش‌های کاملاً تفکیک‌شده سگ‌ها و گربه‌ها — برای کاهش هورمون استرس پیش از شروع معاینه طراحی شده‌اند.',
+      calligraphyQuote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
       imageCaption: 'لابی اصلی کلینیک · سنگ تراورتن آکوستیک و پذیرش مجزای سگ و گربه',
       metrics: [
         { value: '۲۴/۷', label: 'مراقبت ویژه و اورژانس' },
@@ -417,6 +431,26 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         newRequestBtn: 'ثبت نوبت جدید',
       },
     },
+    feedback: {
+      kicker: 'نظرسنجی تجربه کاربری',
+      title: 'آیا از تجربه گشت‌وگذار در سایت الارا رضایت دارید؟',
+      subtitle: 'امتیاز ستاره‌ای شما کمک می‌کند خدمات دیجیتال و نوبت‌دهی کلینیک را پیوسته بهتر کنیم.',
+      ratingLabels: [
+        'نیاز به بهبود دارد',
+        'متوسط',
+        'خوب و کاربردی',
+        'بسیار عالی',
+        'فوق‌العاده و بی‌نقص',
+      ],
+      commentLabel: 'دیدگاه شما (اختیاری)',
+      commentPlaceholder: 'اگر پیشنهادی دارید، با ما در میان بگذارید...',
+      submitBtn: 'ثبت امتیاز',
+      laterBtn: 'فعلاً نه',
+      closeAria: 'بستن پنجره نظرسنجی',
+      selectStarError: 'لطفاً ابتدا بین ۱ تا ۵ ستاره انتخاب کنید.',
+      thanksTitle: 'با سپاس از مهر و همراهی شما',
+      thanksBody: 'امتیاز شما ثبت شد و در ارتقای تجربه کلینیک الارا همراه ماست.',
+    },
     footer: {
       tagline: 'ترکیب دقت معماری مدرن و مهربانی دامپزشکی تخصصی.',
       hoursTitle: 'ساعات پذیرش',
@@ -441,11 +475,11 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       book: 'Book Visit',
     },
     hero: {
-      kicker: 'Specialized Companion Medicine · 3D Spatial Gallery',
+      kicker: 'Specialized Companion Medicine · Munich & Tehran',
       title: 'Calm clinical precision for every companion.',
       nastaliqVerse: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
       subtitle:
-        'Experience our fear-free veterinary sanctuary in interactive 3D. Auto-advancing spatial gallery, board-certified diagnostics, and separated canine and feline wings.',
+        'Experience our warm bronze-and-limestone veterinary sanctuary in interactive 3D. Auto-advancing spatial gallery, board-certified diagnostics, and separated canine and feline wings.',
       primaryCta: 'Schedule Consultation',
       secondaryCta: 'Explore 3D Exam Suite',
       autoPlayOn: 'Auto-slide active',
@@ -537,7 +571,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         },
         lamp: {
           title: 'Articulated Shadowless Optical Lamp',
-          detail: 'Cool-spectrum 4200K surgical illumination designed to avoid retinal glare for sensitive eyes.',
+          detail: 'Warm-balanced surgical illumination designed to avoid retinal glare for sensitive eyes.',
         },
       },
       inspectHint: 'Click any 3D station in the scene to inspect clinical details.',
@@ -545,7 +579,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     philosophy: {
       kicker: 'Architectural Healing Environment',
       title: 'Veterinary medicine without clinical anxiety.',
-      body: 'Every material inside Elara Vet Sanctuary—from acoustic travertine walls and sunlit botanical courtyards to species-isolated examination wings—is engineered to lower cortisol levels before a stethoscope ever touches your companion.',
+      body: 'Every material inside Elara Vet Sanctuary—from acoustic travertine walls and warm bronze details to species-isolated examination wings—is engineered to lower cortisol levels before a stethoscope ever touches your companion.',
       calligraphyQuote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
       imageCaption: 'Main sunlit atrium · Acoustic travertine & separated canine/feline reception wings',
       metrics: [
@@ -695,8 +729,28 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         newRequestBtn: 'Book Another Visit',
       },
     },
+    feedback: {
+      kicker: 'Visitor Experience',
+      title: 'Are you enjoying the Elara Sanctuary experience?',
+      subtitle: 'Your star rating helps our clinic team refine our digital booking and 3D preview.',
+      ratingLabels: [
+        'Needs improvement',
+        'Fair',
+        'Good & helpful',
+        'Very good',
+        'Exceptional',
+      ],
+      commentLabel: 'Optional note',
+      commentPlaceholder: 'Share a thought or suggestion...',
+      submitBtn: 'Submit Rating',
+      laterBtn: 'Not now',
+      closeAria: 'Close rating dialog',
+      selectStarError: 'Please choose between 1 and 5 stars first.',
+      thanksTitle: 'Thank you for your feedback',
+      thanksBody: 'We appreciate you taking a moment to rate your visit with Elara Vet.',
+    },
     footer: {
-      tagline: 'Architectural precision meets gentle veterinary medicine.',
+      tagline: 'Architectural warmth meets gentle veterinary medicine.',
       hoursTitle: 'Clinic Hours',
       hoursDetail: 'Mon – Sat · 08:00 – 21:00',
       emergencyDetail: '24/7 Critical & ICU Triage',
@@ -719,11 +773,11 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
       book: 'Termin',
     },
     hero: {
-      kicker: 'Spezialisierte Kleintiermedizin · Interaktive 3D-Fotogalerie',
+      kicker: 'Spezialisierte Kleintiermedizin · München & Teheran',
       title: 'Ruhige klinische Präzision für Ihren Gefährten.',
       nastaliqVerse: '«هر نفسِ آرامِ این یارانِ بی‌زبان، امانتی است در دستانِ علم و مهربانی»',
       subtitle:
-        'Entdecken Sie unsere stressfreie Tierklinik in einer räumlichen 3D-Fotogalerie. Hochfeld-Diagnostik, Mikrochirurgie und getrennt geführte Hunde- und Katzenflügel.',
+        'Erleben Sie unsere warme Bronze-und-Kalkstein-Klinik in interaktivem 3D. Hochfeld-Diagnostik, Mikrochirurgie und getrennt geführte Hunde- und Katzenflügel.',
       primaryCta: 'Sprechstunde buchen',
       secondaryCta: '3D-Untersuchungsraum',
       autoPlayOn: 'Auto-Slider aktiv',
@@ -815,7 +869,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         },
         lamp: {
           title: 'Schattenfreie OP-Präzisionsleuchte',
-          detail: 'Blendfreies 4200K-Spektrum zum Schutz empfindlicher Tieraugen während der Diagnostik.',
+          detail: 'Blendfreies Lichtspektrum zum Schutz empfindlicher Tieraugen während der Diagnostik.',
         },
       },
       inspectHint: 'Klicken Sie auf eine 3D-Station in der Szene, um Details einzusehen.',
@@ -823,7 +877,7 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
     philosophy: {
       kicker: 'Heilende Klinikarchitektur',
       title: 'Spitzenmedizin ohne klassischen Praxisstress.',
-      body: 'Jedes Detail der Elara Tierklinik – von schallabsorbierenden Travertinwänden über lichtdurchflutete Innenhöfe bis zu strikt getrennten Hunde- und Katzenstationen – senkt den Cortisolspiegel noch vor der ersten Untersuchung.',
+      body: 'Jedes Detail der Elara Tierklinik – von schallabsorbierenden Travertinwänden und warmen Bronzeakzenten bis zu strikt getrennten Hunde- und Katzenstationen – senkt den Cortisolspiegel noch vor der ersten Untersuchung.',
       calligraphyQuote: '«آرامشِ جانِ پناهجو، نیمی از درمان است»',
       imageCaption: 'Lichtdurchflutetes Atrium · Akustischer Travertin & getrennte Empfangsbereiche',
       metrics: [
@@ -973,8 +1027,28 @@ export const TRANSLATIONS: Record<Language, TranslationBundle> = {
         newRequestBtn: 'Weiteren Termin anfragen',
       },
     },
+    feedback: {
+      kicker: 'Besucher-Feedback',
+      title: 'Gefällt Ihnen das Erlebnis in der Elara Tierklinik?',
+      subtitle: 'Ihre Sternebewertung hilft unserem Team, den Online-Service weiter zu verfeinern.',
+      ratingLabels: [
+        'Verbesserungswürdig',
+        'Ausreichend',
+        'Gut',
+        'Sehr gut',
+        'Herausragend',
+      ],
+      commentLabel: 'Kurze Rückmeldung (Optional)',
+      commentPlaceholder: 'Teilen Sie uns gerne Ihren Eindruck mit...',
+      submitBtn: 'Bewertung senden',
+      laterBtn: 'Später',
+      closeAria: 'Bewertungsfenster schließen',
+      selectStarError: 'Bitte wählen Sie zuerst 1 bis 5 Sterne aus.',
+      thanksTitle: 'Vielen Dank für Ihre Bewertung',
+      thanksBody: 'Wir freuen uns sehr über Ihre Rückmeldung zur Elara Tierklinik.',
+    },
     footer: {
-      tagline: 'Architektonische Ruhe trifft auf spezialisierte Tiermedizin.',
+      tagline: 'Architektonische Wärme trifft auf spezialisierte Tiermedizin.',
       hoursTitle: 'Sprechzeiten',
       hoursDetail: 'Mo – Sa · 08:00 – 21:00 Uhr',
       emergencyDetail: '24/7 Notdienst & Intensivstation',
