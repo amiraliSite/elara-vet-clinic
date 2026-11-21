@@ -1,0 +1,6 @@
+{
+  "name": "Elara Vet Sanctuary",
+  "description": "Interactive 3D specialized pet veterinary clinic and diagnostic sanctuary in English, Persian, and German.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
